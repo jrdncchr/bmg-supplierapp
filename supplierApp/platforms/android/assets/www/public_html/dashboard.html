@@ -1,0 +1,120 @@
+<!-- Dashboard View -->
+<div data-role="view" id="dashboard" data-before-show="setupDashboard" data-stretch="true" data-before-hide="hideDashboard">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" data-rel="drawer" href="#main-drawer" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/nav_drawer_icon.png" style="margin-right: 5px;" />
+                <img src='assets/img/nav_logo.png' width="32" height="32" style="margin-right: 5px;" /> 
+                <span data-role="view-title">Dashboard</span>
+            </a>
+            <button data-role="button" id="main-overflow-btn" data-align="right" style="border: none;">
+                <img src="assets/img/drawer/nav_actionbar_overflow_icon.png" />
+            </button>
+        </div>
+        <div class="nav-overflow" id="main-overflow">
+            <ul data-role="listview">
+                <li><a data-transition="none" href="#public_html/terms_and_condition.html"><img src="assets/img/drawer/tos_icon.png" height="18" width="16" />Terms & Condition</a></li>
+                <li><a data-transition="none" href="#public_html/privacy_policy.html"><img src="assets/img/drawer/privacy_icon.png" height="18" width="16" />Privacy Policy</a></li>
+                <li><a data-transition="none"><img src="assets/img/drawer/about_icon.png" height="18" width="16" />About</a></li>
+                <li><a data-transition="none"><img src="assets/img/drawer/settings_icon.png" height="18" width="18" />Settings</a></li>
+                <!--<li><a data-transition="none"><img src="assets/img/drawer/help_icon.png" height="18" width="18" />Help</a></li>-->
+            </ul>
+        </div>
+    </header>
+
+    <div style="height: 100%">
+        <div class="topnav">
+            <!--            <div data-role="tabstrip" style="background-color: red">
+                            <a href="#tabstrip-sales">Bookings</a>
+                            <a href="#tabstrip-rating">Reviews</a>
+                            <a href="#tabstrip-settings">Activities</a>
+                        </div>-->
+            <table width="100%">
+                <tr>
+                    <td class="topnav-left">
+                        <a data-role='button' class='dashboard-navbar topnav-link' href='#public_html/bookings.html' data-transition='fade'>
+                            BOOKINGS
+                            <span class="badge" id="d-bookings-new-count" style="display: none;"></span>
+                        </a>
+                    </td>
+                    <td class="topnav-middle">
+                        <a data-role='button'  class='dashboard-navbar topnav-link' href='#public_html/reviews.html' data-transition='fade'>
+                            REVIEWS
+                            <span class="badge" id="d-reviews-new-count" style="display: none;"></span>
+                        </a>
+                    </td>
+                    <td class="topnav-right"><a data-role='button' class='dashboard-navbar topnav-link' href='#public_html/activities.html' data-transition='fade'>ACTIVITIES</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="bmg-heading">UPCOMING BOOKINGS</div>
+        <div data-role="scroller" class="scroller-content" id="upcomming-bookings-scroller">
+            <ul data-role="listview" class="bmg-list" id="upcoming-bookings" style='display: none; margin-bottom: 100px;'>
+            </ul>
+            <div id='upcoming-bookings-empty' class="empty-view" style='display: none;'>
+                <p>You have no upcoming bookings</p>
+                <p>Try adding new photos in your activities</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="footer" id="notifications-div" style="display: none;">
+        <div class="bmg-heading">NOTIFICATIONS</div>
+        <ul data-role="listview" id='notifications'>
+            <li id="notification-reviews" style="display: none;">
+                <table width="100%" class="notification">
+                    <tr>
+                        <td width="10%"><img src="assets/img/dashboard/review_thumb_icon.png" /></td>
+                        <td width="90%">
+                            <p id="new-reviews-count" class="n-title"></p>
+                            <!--<p id="new-reviews-summary" class="n-content">Cooking Class in Jimbaran Bali, Adventure on a dirt bike thro.. and 3 more</p>-->
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li id="notification-bookings" style="display: none;">
+                <table width="100%" class="notification">
+                    <tr>
+                        <td width="10%"><img src="assets/img/dashboard/booking_icon.png" /></td>
+                        <td width="90%">
+                            <p id="new-bookings-count" class="n-title"></p>
+                            <!--<p id="new-bookings-summary" class="n-content">Booking request for activity 'Cooking Class in Jimbaran Bali'</p>-->
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<script type="text/x-kendo-template" id="upcoming-booking-template">
+    <li>
+    <table width="100%" class="bmg-list-container">
+    <tr>
+    <td width="30%">
+    <a data-transition="fade" data-id="#= booking_id #" style="border: none;" class="booking">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= booking_image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="50%">
+    <a data-transition="fade" data-id="#= booking_id #" style="border: none;" class="booking">
+    <p class="bmg-li-title">#= title #</p>
+    <p class="bmg-li-booked-by">BOOKED BY <strong>#= booked_by #</strong></p>
+    </a>
+    </td>
+    <td width="20%">
+    <div class="bmg-li-envelop">
+    <a href="sms:+#= phone_number #"><img src="assets/img/dashboard/envelop_icon.png"  /></a>
+    <p><img src="assets/img/dashboard/timer_icon.png" /> #= arrival_date #</p>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>

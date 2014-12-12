@@ -1,0 +1,62 @@
+<!-- Reviews View -->
+<div data-role="view" id="reviews" data-layout="reviews" data-before-show="setupReviews">
+    <div class="topnav2 reviews-nav">
+        <table width="100%">
+            <tr>
+                <td class="topnav-active reviews-topnav" id="reviews-new" style='border-right: none !important;'>
+                    <a data-role='button' style='border: none !important;' data-transition="fade"> NEW <span id='activity-new-count' class="badge"></span></a>
+                </td>
+                <td class="reviews-topnav" id="reviews-all">
+                    <a data-role='button' style='border: none !important;' data-transition="fade"> ALL </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <ul data-role="listview" class="bmg-list" id="reviews-list"></ul>
+    <div id='reviews-empty' class="empty-view" style='display: none;'>
+        <p>You have no new reviews</p>
+    </div>
+</div>
+
+
+<!-- Bookings Layout -->
+<div data-role="layout" id="reviews-layout" data-id="reviews">
+    <header data-role="header">
+        <div data-role="navbar">
+           <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Reviews</span>
+            </a>
+        </div>
+    </header>
+</div>
+
+<script type="text/x-kendo-template" id="reviews-template">
+    <li>
+    <table width="100%" class="bmg-list-container" cellspacing="0">
+    <tr>
+    <td width="30%">
+    <a data-transition="fade" class="review" data-id="#= id #" style="border: none;">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= activity_image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="70%">
+    <div class="review-li-container">
+    <div class="rate-div">
+    <p class="rate-label">#= rating #/5</p>
+    <p class="rate-label-day">#= review_date #</p>
+    </div>
+    <a data-transition="fade" class="review" data-id="#= id #" style="border: none;">
+    <p class="review-text">#= review #</p>
+    <p class="review-text-2">#= activity_title #</p>
+    </a>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>

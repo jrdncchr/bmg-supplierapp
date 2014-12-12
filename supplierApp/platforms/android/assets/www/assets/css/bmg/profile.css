@@ -1,0 +1,137 @@
+#profile-top-container {
+    background: #f1f1f1;
+}
+#profile-top-container td {
+    vertical-align: top;
+}
+#profile-top-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.verified {
+    height: 45px;
+    width: 55px;
+    margin-left: 14px;
+}
+
+#profile-bottom-container {
+    background: #f1f1f1;
+}
+#profile-bottom-container table{
+    background: white;
+}
+.profile-bottom-tabname {
+    color: #224099 !important;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 8px 32px 8px 32px !important;
+}
+.profile-bottom-input-full {
+    padding-left: 32px;
+    padding-right: 16px;
+}
+.profile-bottom-input-full-button {
+    padding: 24px 16px;;
+}
+.profile-bottom-input-left {
+    padding-left: 32px;
+    padding-right: 8px;
+}
+.profile-bottom-input-right {
+    padding-right: 16px;
+    padding-left: 8px;
+}
+.profile-bottom-check {
+    position: relative;
+    bottom: -15px;
+    height: 35px;
+    width: 40px;
+    margin-right: 16px;
+}
+.profile-bottom-upload-text {
+    padding-left: 16px;
+    padding-top: 16px;
+    color: #58585b;
+    display: block;
+}
+.profile-bottom-upload-img {
+    margin-left: 32px;
+    margin-top: 8px;
+    margin-bottom: 32px;
+    height: 80px;
+    width: 80px;
+    border: solid #adadad;
+    border-radius: 5px;
+}
+.profile-bottom-upload-edit {
+    font-weight: bold;
+    margin-left: 16px;
+    font-size: 20px;
+}
+.profile-bottom-header {
+    color: #224099 !important;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 8px 0px 0px 16px !important;
+    margin: 0 16px !important;
+}
+.profile-bottom-upload-logo {
+    margin-bottom: 32px;
+    height: 60px;
+    width: 60px;
+    border: solid thin #adadad;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.profile-bottom-upload-logo:first-of-type {
+    margin-left: 32px;
+}
+.profile-bottom-upload-logo-nb {
+    margin-left: 46px;
+    margin-bottom: 32px;
+    height: 60px;
+    width: 60px;
+}
+.profile-img {
+    background-image: url('../../img/profile/profile_pic_placeholder.gif');
+    z-index: 1000;
+    height: 140px;
+    width: 140px;
+}
+.profile-bottom-upload-logo-nb-nm {
+    margin-right: 5px;
+    margin-bottom: 32px;
+    height: 60px;
+    width: 60px;
+}
+.profile-social-text {
+    padding: 0px 16px;
+    font-size: 14px;
+}
+.profile-social-add {
+    font-size: 20px;
+    padding: 8px 16px !important;
+}
+.profile-success {
+    color: #65a811 !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 0px 0px 16px !important;
+    margin: 0 16px !important;
+}
+
+#profile-top-picture {
+    position: relative;
+    top: 30px;
+}
+
+#profile-badge {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+}
+
+
+.profile-input-check {
+    padding-left: 8px;
+}

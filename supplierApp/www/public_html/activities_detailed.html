@@ -1,0 +1,82 @@
+<!-- View -->
+<div data-role="view" id="activities-detailed" data-layout="activities-detailed-layout" data-before-show="setupActivityInfo(null)" data-before-hide="hideActivityDetail" data-reload="true">
+    <div id='activity-scrollview-container'>
+        <div class="aty-img-cover-status" id="activity-status"></div>
+        <div id="aty-img-left" class="aty-img-arrow" style="display: none;" data-click=""><i class="fa fa-angle-left fa-2x"></i></div>
+        <div id="aty-img-right" class="aty-img-arrow" data-role="button" data-click="nextActivityImage"><i class="fa fa-angle-right fa-2x"></i></div>
+        <div data-role="scrollview" data-enable-pager="false" data-content-height="100%" data-auto-bind="false" data-changing="atyScrollViewChangingEvent" id='activity-pictures' data-page="0">
+            <div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div><div class='photo' data-role='page'>&nbsp;</div>
+        </div>
+        <div class="aty-cover">
+            <table width="100%;">
+                <tr>
+                    <td width="57%">
+                        <a id="aty-ask-review">
+                            <img src="assets/img/activities/ask_review_icon_white.png"  class="aty-img-review" /> 
+                            ASK FOR REVIEW
+                        </a>
+                    </td>
+                    <td width="43%">
+                        <a href="#modal-add-image" data-rel="modalview" data-role="button" style="float: right">
+                            <img src="assets/img/activities/add_image_icon.png" class="aty-img-image" /> 
+                            ADD IMAGE
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--    <div id="activity-image" class="aty-img-cover image">
+            
+            <div id="activity-status" class="aty-img-cover-status"></div>
+            
+        </div>-->
+    <div class="aty-middle-container">
+        <span id="activity-code"></span> | <span id="activity-country"></span> | <span id="activity-type"></span>
+    </div>
+    <div class="aty-container" style="background: white;">
+        <p class="aty-title" id="activity-title"></p>
+        <p class="aty-text" id="activity-description"></p>
+        <a class="aty-hr-container"><div class='aty-hr'></div></a>
+        <div id="activity-review">
+            <p class="aty-reviews" style="margin-top: 10px;"><img src="assets/img/activities/review_star-icon.png" height="15" width="15" /> Reviews</p>
+            <p>Total of <span id="activity-review-count"></span> Review(s) <span class="aty-average">Avg. Score <span style="font-weight: bold;" id="activity-review-average"></span></span></p>
+        </div>
+        <div class="aty-hr-container"><div class='aty-hr'></div></div>
+        <div class="aty-missing-container">
+            <p class="aty-text-large">Missing some actions?</p>
+            <p>Additional features are available through our <a href="#" class="aty-link">desktop dashboard.</a></p>
+        </div>
+        <button id="activity-share-btn" data-role="button" class="bmg-button btn-block">Share activity</button>
+    </div>
+</div>
+
+<!-- Layout -->
+<div data-role="layout" id="activities-detailed-layout" data-id="activities-detailed-layout" data-init="setupActivitiesLayout">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Activity</span>
+            </a>
+            <button data-role="button" id="aty-overflow-btn" data-align="right" data-bind="click: showAtyOverflow" style="border: none;">
+                <img src="assets/img/drawer/nav_actionbar_overflow_icon.png" />
+            </button>
+        </div>
+        <div id="activity-overflow" class="nav-overflow">
+            <ul data-role="listview">
+                <li><a data-role="button" id="activity-disable-btn" data-bind="click: disableActivity"><img src="assets/img/activities/disable_icon.png" height="18" width="16" />Disable</a></li>
+                <li><a data-role="button" id="activity-delete-btn" data-bind="click: deleteActivity"><img src="assets/img/activities/delete_icon.png" height="18" width="16" /> Delete</a></li>
+            </ul>
+        </div>
+    </header>
+</div>
+
+<!-- Modal View for Add-image -->
+<div data-role="modalview" id="modal-add-image" style="width: 90%; padding: 10px;"  data-modal="false">
+    <p class="text-center" style="font-weight: bold;">Upload Photo</p>
+    <button class="btn btn-block btn-primary btn-lg" id="aty-upload-capture" onclick="addActivityImage('capture');">Capture Image</button>
+    <button class="btn btn-block btn-primary btn-lg" id="aty-upload-existing" onclick="addActivityImage('existing');">Use Existing Photo</button>
+</div>

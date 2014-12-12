@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BeMyGuest</title>
+        <!-- CSS Frameworks/Plugins -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300'>
+        <link rel="stylesheet" href="assets/css/kendo.common-bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/kendo.default.min.css"/>
+        <link rel="stylesheet" href="assets/css/kendo.bootstrap.mobile.min.css"/>
+        <!--<link rel="stylesheet" href="assets/css/kendo.mobile.all.min.css" />-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+
+        <!--Custom CSS -->
+        <link rel="stylesheet" href="assets/css/bmg/main.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/login.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/dashboard.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/profile.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/bookings.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/activities.css"/>
+        <link rel="stylesheet" href="assets/css/bmg/reviews.css"/>
+    </head>
+    <body>
+        <!-- Login View ~ Default View -->
+        <div id="login" data-role="view" data-layout="default" data-stretch="true">
+            <div style="height: 100%;">
+                <div class="logo img-responsive"></div>
+                <div id="loginDiv">
+                    <div id="loginForm">
+                        <input type="text" class="bmg-input-login" id="email" placeholder="Email"/>
+
+                        <div class="bmg-hr-login"></div>
+                        <input type="password" class="bmg-input-login" id="password" placeholder="Password"/>
+                    </div>
+                    <div id="loginForm2">
+                        <button class="bmg-button btn btn-block" data-role="button" data-bind="click: login"
+                                style="margin-top: 15px;">Log In
+                        </button>
+                        <br/>
+                        <table width="100%" id="otherLinks">
+                            <tr>
+                                <td><a data-role="button" href="#forgetPassword" onclick="clearLogin();" data-transition="fade"
+                                       class="link">Forgot Password?</a></td>
+                                <td class="text-right"><a data-role="button" onclick="clearLogin();"
+                                                          href="#public_html/sign_up.html" data-transition="fade" class="link">Sign
+                                        up</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert Modal -->
+        <div data-role="modalview" id="bmg-alert" style="width: 90%; display: none;">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span class="text-danger" id="bmg-alert-header"><small><strong>Alert</strong></small></span>
+                </div>
+            </div>
+            <p id="bmg-alert-message" style="text-align: center;"></p>
+            <button id="bmg-alert-okay" class="bmg-btn btn btn-danger center-block" style="width: 80%; font-weight: bold;"
+                    data-role="button">Okay
+            </button>
+            <br/>
+        </div>
+        <div data-role="modalview" id="bmg-confirm" style="width: 90%; display: none;">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span id="bmg-confirm-header"><small><strong>Confirmation</strong></small></span>
+                </div>
+            </div>
+            <p id="bmg-confirm-message" style="text-align: center;"></p>
+
+            <div style="padding: 10px;">
+                <button id="bmg-confirm-okay" class="bmg-btn btn btn-success pull-left" style="width:48%; font-weight: bold;"
+                        data-role="button">Confirm
+                </button>
+                <button id="bmg-confirm-cancel" class="bmg-btn btn btn-default pull-right" style="width:48%; font-weight: bold;"
+                        data-role="button">Cancel
+                </button>
+                <br/>
+            </div>
+
+        </div>
+
+        <!-- Forget Password View -->
+        <div id="forgetPassword" data-role="view" data-layout="default" data-stretch="true" data-init="setupForgetPassword">
+            <div style="height: 100%;">
+                <div class="logo img-responsive"></div>
+                <div id='forget-password-div'>
+                    <p>Please enter your email address and we'll send you an email with steps to reset your password.</p>
+
+                    <form id="forgetPasswordForm">
+                        <input type="text" class="bmg-input-login" id="fwEmail" style="width: 95%;"
+                               placeholder="Email Address"/>
+                    </form>
+                    <div class="col-sm-12 form-group">
+                        <button class="bmg-button btn btn-block" id="forgetPasswordBtn">Reset Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login, Forget Password, Sign Up Layout -->
+        <section data-role="layout" data-id="default">
+
+        </section>
+
+        <!-- Main Drawer ~ Drawers cannot be put in an external location -->
+        <div data-role="drawer" id="main-drawer" style="width: 300px;" data-init="initDrawer"
+             data-views="['public_html/dashboard.html', 'public_html/profile.html', 'public_html/profile_licensed.html']">
+            <ul data-role="listview">
+                <li>
+                    <a class="prof-name main-drawer-profile" data-transition="none">
+                        <table width="100%">
+                            <tr>
+                                <td width="25%">
+                                    <div id="drawer-profile-picture" class="image"></div>
+                                </td>
+                                <td width="75%"><span id="drawer-full-name"></span></td>
+                            </tr>
+                        </table>
+                    </a>
+                </li>
+                <li><a href="#public_html/dashboard.html" data-transition="none"><img src="assets/img/drawer/icon_home.png"
+                                                                                      height="20" width="20"/> Home</a></li>
+                <li><a href="#public_html/bookings.html" data-transition="none"><img src="assets/img/drawer/icon_bookings.png"
+                                                                                     height="20" width="20"/> Bookings</a></li>
+                <li><a href="#public_html/reviews.html" data-transition="none"><img src="assets/img/drawer/icon_reviews.png"
+                                                                                    height="25" width="25"/>Reviews</a></li>
+                <li><a href="#public_html/activities.html" data-transition="none"><img
+                            src="assets/img/drawer/icon_activities.png" height="25" width="25"/>Activities</a></li>
+                <li><a href="#public_html/profile.html" class="main-drawer-profile" data-transition="none"><img
+                            src="assets/img/drawer/icon_profile.png" height="25" width="25"/>Profile</a></li>
+                <li style="height: 70px;"></li>
+                <!--                <li><a data-transition="none" ><img src="assets/img/drawer/help_icon.png" height="20" width="20" /> Help</a></li>-->
+                <li><a data-transition="none" id="settings"><img src="assets/img/drawer/settings_icon.png" height="20"
+                                                                 width="20"/> Settings</a></li>
+                <li><a id="logoutBtn" data-transition="none"><img src="assets/img/drawer/exit_icon.png" height="20" width="20"/>
+                        Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Plugin Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <!--<script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>-->
+        <!--<script src="assets/js/kendo.ui.core.min.js"></script>-->
+        <script src="assets/js/plugin/modernizr.custom.min.js"></script>
+        <script src="assets/js/plugin/SocialSharing.js"></script>
+
+        <!-- Custom Scripts for BMG App -->
+        <script>
+                                    var api_url = "https://api.bemyguest.com.sg/api1/";
+                                    //                                    var api_url = "http://devph.bemyguest.com.sg/api1/";
+                                    //                                    var api_url = "http://playground.bemyguest.com.sg/api1/";
+                                    //    var api_url = "http://amazingbemyguest/api1/";
+                                    //                                    var api_url = "http://192.168.1.163/api1/";
+
+                                    var app = new kendo.mobile.Application(document.body, {transition: 'none'});
+                                    /* Model used for the login view, it binds the login method in the login button click event */
+                                    function login(email, password, validate) {
+                                        if (validateLogin(validate)) {
+                                            user_login(email, password);
+                                        }
+                                    }
+                                    var loginModel = kendo.observable({
+                                        login: function(e) {
+                                            e.preventDefault();
+                                            login($('#email').val(), $('#password').val(), true);
+                                        }
+                                    });
+                                    kendo.bind($("#login"), loginModel);
+
+                                    function check() {
+                                        var api_key = localStorage.getItem('api_key');
+                                        if (api_key) {
+                                            readProfile();
+                                            app.navigate("#public_html/dashboard.html");
+                                        }
+                                    }
+
+                                    /* Validate the user inputs in the login form */
+                                    function validateLogin(validate) {
+                                        if (validate) {
+                                            if ($('#email').val().length === 0) {
+                                                show_error("Email cannot be empty.");
+                                                return false;
+                                            }
+                                            if ($('#password').val().length < 4) {
+                                                show_error("Password must be atleast 4 characters.");
+                                                return false;
+                                            }
+                                            kendo.mobile.application.hideLoading();
+                                            return true;
+                                        } else {
+                                            return true;
+                                        }
+                                    }
+
+                                    /* Clears all inputs and error messages */
+                                    function clearLogin() {
+                                        $('#password').val("");
+                                    }
+
+                                    function setupForgetPassword() {
+                                        $('#forgetPasswordBtn').click(function() {
+                                            if ($("#fwEmail").val().length > 0) {
+                                                retrieve_password($("#fwEmail").val());
+                                            } else {
+                                                $("#bmg-alert-message").html("Please enter your valid email address.");
+                                                $("#bmg-alert").kendoMobileModalView("open");
+                                            }
+
+                                        });
+                                    }
+                                    if (localStorage.getItem('email')) {
+                                        $('#email').val(localStorage.getItem('email'));
+                                    }
+
+                                    $('#settings').click(function() {
+                                        var api_key = localStorage.getItem('api_key');
+                                        $.ajax({
+                                            url: api_url + "bookings/push_notification_test",
+                                            type: 'GET',
+                                            data: {api_key: api_key},
+                                            async: false,
+                                            success: function(data) {
+                                                alert(data);
+                                            },
+                                            error: function(error) {
+                                                console.log(JSON.stringify(error));
+                                            }
+                                        });
+                                    });
+
+                                    document.addEventListener("deviceready", onDeviceReady, false);
+
+                                    var pushNotification;
+                                    function onDeviceReady() {
+                                        document.addEventListener("hidekeyboard", function() {
+                                            $('input').blur();
+                                        }, false);
+                                        pushNotification = window.plugins.pushNotification;
+
+                                        pushNotification.register(
+                                                successHandler,
+                                                errorHandler,
+                                                {
+                                                    "senderID": "599040489317",
+                                                    "ecb": "onNotification"
+                                                });
+                                    }
+
+                                    function successHandler(result) {
+                                        alert('result = ' + result);
+                                    }
+                                    function errorHandler(error) {
+                                        alert('error = ' + error);
+                                    }
+
+                                    function onNotification(e) {
+
+
+                                        switch (e.event)
+                                        {
+                                            case 'registered':
+                                                if (e.regid.length > 0)
+                                                {
+                                                    alert(e.regid);
+                                                }
+                                                break;
+
+                                            case 'message':
+                                                // if this flag is set, this notification happened while we were in the foreground.
+                                                // you might want to play a sound to get the user's attention, throw up a dialog, etc.
+                                                if (e.foreground)
+                                                {
+                                                    $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+
+                                                    // on Android soundname is outside the payload.
+                                                    // On Amazon FireOS all custom attributes are contained within payload
+                                                    var soundfile = e.soundname || e.payload.sound;
+                                                    // if the notification contains a soundname, play it.
+                                                    var my_media = new Media("/android_asset/www/" + soundfile);
+                                                    my_media.play();
+                                                }
+                                                else
+                                                {  // otherwise we were launched because the user touched a notification in the notification tray.
+                                                    if (e.coldstart)
+                                                    {
+                                                        $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+                                                    }
+                                                    else
+                                                    {
+                                                        $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+                                                    }
+                                                }
+
+                                                $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+                                                //Only works for GCM
+                                                $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+                                                //Only works on Amazon Fire OS
+                                                $status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
+                                                break;
+
+                                            case 'error':
+                                                $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+                                                break;
+
+                                            default:
+                                                $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+                                                break;
+                                        }
+                                    }
+
+        </script>
+
+        <script src="assets/js/bmg/all.js"></script>
+        <script src="assets/js/bmg/api.js"></script>
+        <script src="assets/js/bmg/main.js"></script>
+        <script src="assets/js/bmg/sign_up.js"></script>
+        <script src="assets/js/bmg/activity.js"></script>
+        <script src="assets/js/bmg/bookings.js"></script>
+        <script src="assets/js/bmg/profile.js"></script>
+        <script src="assets/js/bmg/reviews.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    </body>
+</html>

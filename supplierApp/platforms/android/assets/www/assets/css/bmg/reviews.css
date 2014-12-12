@@ -1,0 +1,236 @@
+#reviews .km-content{
+    background-color: lightgray;
+}
+.lrl-email-div {
+    width: 100%;
+    height: 40px;
+    background: white;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 8px;
+}
+
+.reviews-topnav {
+    width: 50%;
+    border-right: 1px solid #404041;
+    text-align: center;
+    padding: 8px 0 8px 8px;
+}
+.rate-div {
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.rate-label {
+    background: #f05a22;
+    height: 22px;
+    width: 60px;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    float: right;
+    color: white;
+    font-weight: bold;
+    margin-top: 16px !important;
+    padding: 0 4px;
+}
+.review-li-container {
+    padding: 8px 0;
+}
+.rate-label-day {
+    float: right;
+    font-size: 11px;
+    padding-right: 4px;
+}
+.review-text {
+    font-weight: bold;
+    line-height: 14px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 75%;
+    display: -webkit-box;
+    line-height: 16px; 
+    max-height: 50px;
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+tr td{position:relative}
+
+.review-text-2 {
+    text-overflow: -o-ellipsis-lastline;
+    font-size: 12px;
+    color: #adadad;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+}
+.reviews-img-cover-bottom {
+    color: white;
+    font-size: 18px;
+    position: relative;
+    top: 75%;
+    margin-left: 16px;
+}
+.reviews-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.review-li-text {
+    font-family: 'Roboto', sans-serif;
+    background: white;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border: none;
+    font-size: 12px;
+    padding-left: 8px !important;
+}
+.review-li-rate-red {
+    color: #ef3800;
+    font-size: 14px;
+    padding-left: 8px !important;
+    padding-top: 4px !important;
+}
+.review-li-rate-green {
+    color: #65a811;
+    font-size: 14px;
+    padding-left: 8px !important;
+    padding-top: 4px !important;
+}
+.review-written-by {
+    font-size: 12px;
+    color: #adadad;
+    padding-left: 8px !important;
+    padding-top: 4px !important;
+}
+
+.review-ask-review-btn {
+    margin: 50px auto 16px auto !important;
+    padding: 0 32px !important;
+}
+.review-ask-div {
+    padding: 32px 0;
+    text-align: center;
+}
+
+#reviews-lr-top-container {
+    padding: 16px;
+    width: 100%;
+}
+#reviews-lr-top-container p {
+    padding: auto 0 !important;
+    margin: 0 !important;
+}
+#reviews-lr-bottom-container {
+    padding: 16px;
+    width: 100%;
+}
+.reviews-lr-trust {
+    font-weight: bold;
+    font-size: 17px;
+    padding-left: 8px;
+    color: #f05a22;
+}
+.reviews-lr-note {
+    padding-top: 32px !important;
+}
+.bmg-lr-or {
+    text-align: center;
+    font-style: italic;
+    vertical-align: bottom;
+}
+.bmg-lrnow-top-container {
+    width: 100%;
+    height: 55px;
+    padding: 16px;
+    background: #f05a22;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-overflow: ellipsis;
+}
+.bmg-lrnow-container {
+    padding: 16px 0;
+    width: 100%;
+}
+.bmg-lr-message {
+    width: 100%;
+    height: 150px;
+    background: #f1f1f1;
+    padding: 16px;
+    border: solid thin #adadad;
+    margin-top: 32px;
+}
+.bmg-lrnow-ratings {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+.bmg-lrnow-slide {
+    width: 100%;
+    border: thin solid blue;
+}
+#reviews-leave-review .k-slider-track {
+    background: #d6d6d6;
+    height: 5px !important;
+}
+.bmg-lrnow-add-photo {
+    margin-top: 36px;
+    border: dashed #d6d6d6;
+    min-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #adadad;
+}
+.reviews-lrl-addemail {
+    font-size: 18px;
+    color: #adadad;
+    text-align: right;
+    margin-top: 5px;
+}
+.reviews-lrl-p-container {
+    border-bottom: solid thin #f05a22;
+    margin: 16px 16px;
+}
+
+.reviews-lrl-p-container p {
+    font-size: 18px;
+    text-align: center;
+    color: #f05a22;
+    font-weight: bold;
+}
+
+.review-user-image {
+    height: 50px; 
+    width: 50px; 
+    background-position: center;
+}
+
+.review-email-error {
+    color:red;
+}
+.lrl-photo {
+    height: 70px; 
+    width: 70px;
+    border: solid 4px lightgray;
+    border-radius: 5px;
+}
+.lrl-photo-success {
+    position: absolute;
+    top: 27px;
+    left: 95px;
+    font-size: 18px;
+    font-weight: bold;
+    
+}

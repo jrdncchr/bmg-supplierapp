@@ -1,0 +1,239 @@
+#bookings .km-content{
+    background-color: lightgray;
+}
+#bookings_confirmed .km-content{
+    background-color: lightgray;
+}
+#bookings_history .km-content{
+    background-color: lightgray;
+}
+.topnav2 a:hover{
+    color: white;
+}
+.topnav2 {
+    background-color: #2d5ac9;
+    color: white;
+}
+.topnav2-left {
+    width: 30%;
+    border-right: 1px solid #404041;
+    text-align: left;
+    padding: 8px 0 8px 8px;
+}
+.topnav2-middle {
+    width: 40%;
+    border-right: 1px solid #404041;
+    text-align: center;
+}
+.topnav2-right {
+    width: 30%;
+    text-align: right;
+    padding: 8px 8px 8px 0px;
+}
+.topnav-active {
+    border-bottom: #224099 solid;
+    font-weight: bold;
+    background-color: #1454B2
+}
+.profit-label {
+    background: #f05a22;
+    height: 20px;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    float: right;
+    color: white;
+    font-weight: bold;
+    margin-top: 4px !important;
+}
+.bmg-li-title-12 {
+    font-size: 12px;
+    font-weight: bold; 
+    padding-top: 8px;
+}
+.bmg-li-text-12 {
+    font-size: 12px;
+    color: #adadad;
+    font-weight: bold;
+}
+.bmg-expire-time {
+    padding: 2px;
+    margin: 1px;
+    color: #f05a22;
+    border-radius: 2px;
+}
+.bmg-expire-time-2 {
+    padding: 2px;
+    margin: 1px;
+    color: #f05a22;
+    border-radius: 2px;
+}
+.bmg-status {
+    background: #ef3800;
+    padding: 2px;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+}
+.bmg-img-cover {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bmg-img-cover-top {
+    background-image: url('../../img/bookings/image_top_gradient.png');
+    background-repeat: repeat-x;
+    height: 40px;
+    padding: 8px;
+}
+.bmg-img-cover-bottom {
+    background-image: url('../../img/bookings/circles.png');
+    background-repeat: no-repeat;
+    background-size: 100% 25%;
+    background-position: bottom;
+    width: 100%;
+    height: 10px;
+    position: relative;
+    bottom: -70%;
+}
+.bmg-request-time {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.bmg-bookings-request-title {
+    font-size: 19px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bmg-bookings-label {
+    font-weight: bolder;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 8px;
+}
+.bmg-booking-details-label {
+    padding: 8px 0 0 8px;
+    font-size: 20px;
+    margin: 0;
+}
+.bmg-booking-details-label-xs {
+    padding: 2px 0 0 8px;
+    font-size: 15px;
+    margin: 0;
+}
+.bmg-booking-details-label-xss {
+    padding: 2px 0 0 8px;
+    font-size: x-small;
+    margin: 0;
+}
+.bmg-booking-details-label-sm {
+    padding: 2px 0 0 8px;
+    font-size: 15px;
+    margin: 0;
+}
+.bmg-booking-details-label-md {
+    padding: 2px 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+.bmg-booking-details-value {
+    padding:  0 0 0 8px;
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+.bmg-booking-details-value-img {
+    margin: 0px 14px;
+    float: right;
+}
+.bmg-booking-details-value-right {
+    float: right;
+    font-weight: bold;
+    padding-right: 8px;
+}
+.bmg-booking-details-hr {
+    height: 5px;
+    border-bottom: 1px solid #d6d6d6;
+    width: 100%;
+}
+.bmg-booking-details-guest-message {
+    font-weight: bold;
+    font-size: 14px;
+    background: #f1f1f1;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+.bmg-booking-details-text-completed {
+    padding: 16px 0 0 8px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 0;
+    color: #f05a22;
+}
+.bmg-booking-details-text-rejected {
+    padding: 16px 0 0 8px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    color: #ef3800;
+    margin-bottom: 0;
+}
+.bmg-booking-details-review {
+    padding: 2px 0 0 8px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    color: #65a811;
+}
+.bmg-booking-table {
+    margin: 30px 0px;
+}
+.bmg-booking-table-text {
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 16px;
+}
+.bmg-booking-questions {
+    margin: 30px 16px;
+}
+.bmg-booking-questions-text-large {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.bmg-booking-questions-text {
+    font-size: 16px;
+    text-align: center;
+}
+.bmg-bookings-link {
+    color: blue !important;
+}
+.bmg-status-rejected {
+    color: red;
+}
+.bmg-status-completed {
+    color: yellowgreen;
+}
+.bookings-no-activity {
+    padding: 100px 32px 24px 32px;
+}
+.bookings-no-activity-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #404041;
+}
+.bookings-no-activity-button {
+    margin-top: 32px;
+    background: #3c7af7;
+    color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+}

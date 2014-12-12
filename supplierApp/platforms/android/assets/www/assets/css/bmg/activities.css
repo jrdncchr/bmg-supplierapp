@@ -1,0 +1,228 @@
+#activities .km-content{
+    background-color: lightgray;
+}
+.topnav2 td {
+    border-right: none !important;
+}
+.text-active {
+    color: #65a811;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+.text-draft {
+    color: #ffb510;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+.text-disabled {
+    color: #ef3800;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+.bmg-mobile-restrict {
+    text-align: center;
+    color: #020202;
+    margin: 32px;
+}
+.aty-hr-container {
+    padding: 16px 0;
+}
+
+#activity-description {
+    padding: 10px 0px !important;
+    font-family: 'Roboto', sans-serif;
+    background: white;
+    padding: 0;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border: none;
+}
+
+.long-text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    background: white;
+    padding: 0;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border: none;
+}
+#activity-scrollview-container {
+    position: relative;
+}
+.aty-cover {
+    background: rgb(25, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(25, 25, 50, .3);
+    color: white;
+    font-weight: bold;
+    background-repeat: repeat-x;
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.aty-hr {
+    height: 2px;
+    border-bottom: 1px solid #d6d6d6;
+    width: 100%;
+}
+.aty-img-cover {
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 16px;
+    position: relative;
+}
+.aty-img-cover-status {
+    color: white;
+    font-weight: bold;
+    width: 90px;
+    text-transform: uppercase;
+    padding: 4px 0px 4px 16px;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    margin-top: 15px;
+}
+.aty-img-cover-status-disabled {
+    color: white;
+    font-weight: bold;
+    width: 110px;
+    padding: 4px 0px 4px 16px;
+}
+.aty-active {
+    background: #65a811 !important;
+}
+.aty-pending {
+    background: #ffb510 !important;
+}
+.aty-disabled {
+    background: #ef3800 !important;
+}
+.aty-img-cover-bottom {
+    padding: 0px 16px;
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.aty-img-review {
+    height: 30px;
+    width: 30px;
+    margin-right: 2px;
+}
+.aty-img-image {
+    height: 30px;
+    width: 35px;
+    margin-right: 2px;
+}
+.aty-middle-container {
+    background: #f05a22;
+    padding: 8px 16px;
+    color: white;
+}
+.aty-middle-container span {
+    font-weight: bold;
+}
+.aty-container {
+    padding: 16px;
+}
+.aty-title {
+    color: #224099;
+    font-weight: bold;
+    font-size: 18px;
+}
+.aty-text {
+    font-size: 12px;
+    padding-top: 16px;
+}
+.aty-container p {
+    padding: 0;
+    margin: 0;
+}
+.aty-reviews {
+    font-size: 18px;
+    font-weight: bold;
+}
+.aty-reviews img {
+    margin-bottom: 3px;
+}
+.aty-average {
+    float: right;
+    color: #f05a22;
+}
+.aty-missing-container {
+    border: solid #f05a22;
+    margin: 16px 0;
+    padding: 16px 15%;
+    min-height: 110px;
+}
+.aty-text-large {
+    font-weight: bold;
+    font-size: 18px;
+}
+.aty-link {
+    color: #f05a22 !important;
+    text-decoration: underline !important;
+}
+.aty-features {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 16px !important;
+}
+
+.aty-share-btn {
+    color: white;
+    background: #3c7af7;
+}
+.aty-questions {
+    margin: 32px 0;
+}
+.aty-questions p {
+    line-height: 32px;
+}
+.photo {
+    height: 250px;
+    display: inline-block;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:  no-repeat;
+    background-position: center center;
+}
+
+#activity-scrollview-container {
+    position: relative;
+    height: 250px;
+}
+
+.aty-no-review {
+    opacity: .7;
+}
+
+#aty-img-left {
+    left: 0;
+}
+
+.aty-img-arrow {
+    top: 0;
+    position: absolute;
+    margin-top: 100px;
+    padding: 12px;
+    background: red;
+    z-index: 1000;
+    background: black;
+    background: rgb(25, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(25, 25, 50, .3);
+    color: white;
+}
+
+#aty-img-right {
+    right: 0;
+}

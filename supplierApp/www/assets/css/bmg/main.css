@@ -1,0 +1,302 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    min-height:100%;
+}
+.badge {
+    background:  #f05a22;
+    position: relative;
+    top: -8px;
+    font-size: 8px;
+}
+#dashboard .km-content{
+    background-color: lightgray;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.image {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:  no-repeat;
+    background-position: center center;
+    /*background-attachment: fixed;*/
+}
+
+
+
+.bmg-button {
+    height: 48px;
+    text-align: center;
+    background: #3c7af7;
+    color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bmg-button:hover {
+    background-color: #F05B25;
+    border: none;
+}
+
+.bmg-hr-container {
+    padding: 0 16px;
+    background: white;
+}
+.bmg-hr {
+    border-bottom: solid #adadad;
+}
+
+p.error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+}
+
+a.km-listview-link:after{
+    display:none;
+}
+a.km-button {
+    border: none !important;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+a.km-button:hover {
+    background: transparent;
+}
+.bmg-container {
+    padding: 8px 0px;
+}
+.bmg-hr-styled {
+    width: 100%;
+    background-image: url('../../img/bookings/divider_slashes.png');
+    background-size: 100% 100%;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 5px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+.bmg-hr-login{
+    width: 100%;
+    height: 1px;
+    background: #e5e5e5;
+}
+.bmg-hr-circle {
+    width: 100%;
+    background-image: url('../../img/bookings/circles_bottom_grey.png');
+    background-size: 100% 100%;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 10px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+.bmg-success {
+    color: #65a811;
+}
+.bmg-failed {
+    color: #ef3800;
+}
+.bmg-pending {
+    color: #ffb510;
+}
+.empty-view {
+    padding-top: 100px;
+    padding-bottom: 150px;
+    height: 200px;
+    /*background: whitesmoke;*/
+}
+
+.empty-view p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.view-all {
+    background: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.link {
+    text-decoration: none;
+    font-size: small;
+    /*padding: 0 16px 16px 16px;*/
+    margin-top: 0 !important;
+    color: blue !important;
+    border: none;
+    background: transparent;
+}
+
+.link:hover {
+    background: transparent;
+}
+
+input.holo {
+    width: 100%;
+    font-size: 18px;
+    height: 48px;
+    margin: 0;
+    padding: 16px 8px 6px 8px;
+    position: relative;
+    display: block;
+    outline: none;
+    border: none;
+    background: bottom left linear-gradient(#a9a9a9, #a9a9a9) no-repeat, bottom center linear-gradient(#a9a9a9, #a9a9a9) repeat-x, bottom right linear-gradient(#a9a9a9, #a9a9a9) no-repeat;
+    background-size: 1px 6px, 1px 1px, 1px 6px;
+}
+input.holo:hover, input.holo:focus {
+    background: bottom left linear-gradient(#0099cc, #0099cc) no-repeat, bottom center linear-gradient(#0099cc, #0099cc) repeat-x, bottom right linear-gradient(#0099cc, #0099cc) no-repeat;
+    background-size: 1px 6px, 1px 1px, 1px 6px;	
+}
+.bmg-input-div {
+    width: 100%;
+    height: 55px;
+    background: white;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 8px;
+}
+.bmg-input {
+    position:relative;
+    width: 98%;
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: 16px !important;
+}
+
+.bmg-input-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #5E5E5E;
+    float: left;
+    font-weight: 700;
+    /*letter-spacing: 1px;*/
+}
+
+.bmg-input-label-sm {
+    display: block;
+    font-size: 12px;
+    padding-bottom: 2px;
+    color: gray;
+}
+
+.bmg-title-label {
+    color: #171717;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: lightgray;
+    text-transform: uppercase;
+    padding: 10px 8px;
+}
+
+
+.holo-spinner select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: -1px !important;
+    text-overflow: '';
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    height: 20px;
+    box-shadow: none;
+    padding: 0 !important;
+    background-color: white !important;
+}
+.holo-spinner select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+.holo-spinner > span {
+    z-index: 999; 
+    display:inline-block;
+}
+.holo-spinner > span { 
+    position:relative; width: 100%;
+    font-size: 14px;
+}
+.holo-spinner > span:after {
+    border-right:  6px solid #a9a9a9;
+    border-bottom: 6px solid #a9a9a9;
+    border-top:  transparent 6px solid;
+    border-left: transparent 6px solid;
+    width:0; height:0;
+    right: 0; bottom: 0;
+    position:absolute;
+    content:"";
+}
+
+.nav-overflow {
+    position: absolute;
+    right: 0;
+    margin-right: 8px;
+    display: none;
+    border: solid thin gainsboro;
+}
+.nav-overflow li{
+    min-width: 150px;
+    padding: 12px;
+    margin: 0;
+}
+.nav-overflow img{
+    margin-right: 16px;
+}
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    padding-top: 10px;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #3c7af7;
+    height:20px;
+    width:20px;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    top: -6px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type='range']::-moz-range-thumb {
+    -moz-appearance: none !important;
+    background: #3c7af7;
+    height:20px;
+    width:20px;
+    border: none;
+    border-radius: 10px;
+}
+input[type=range]::-moz-range-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}

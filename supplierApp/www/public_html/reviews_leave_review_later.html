@@ -1,0 +1,45 @@
+<!-- Bookings View -->
+<div data-role="view" id="reviews-leave-review" data-reload="true" data-layout="reviews-leave-review" data-before-show="initLeaveReviewEmail">
+    <div class="bmg-lrnow-top-container">
+        <div class="truncate" id="lrl-title"></div>
+    </div>
+    <div class="bmg-lrnow-container" style="text-align: center;">
+        <div class="col-sm-12 form-group">
+            <p>We will send an email to the below address with a form for submitting a review.</p>
+            <p>Upon submitting a review you will receive a <strong>discount code worth 10%</strong> which can be used on www.bemyguest.com.sg!</p>
+        </div>
+        <div class="lrl-email-div" id="lrl-email-temp" style="display: none;">
+            <div class="input-group">
+                <input type="text" class="bmg-input email-input" placeholder="Email of reviewer"  />
+                <span class="input-group-btn">
+                    <button class="btn btn-default lrl-remove-email" style="border: none; background-color: transparent;" type="button"><i class="fa fa-times"></i></button>
+                </span>
+            </div>
+        </div>
+        <div id="lrl-email-list">
+            <div class="lrl-email-div">
+                <input type="text" class="bmg-input email-input" placeholder="Email of reviewer" />
+            </div>
+        </div>
+        <div class="col-sm-12 form-group">  
+            <p class="reviews-lrl-addemail" id="lrl-add-email">Add more people <b>+</b></p>
+        </div>
+        <div class="col-sm-12 form-group">
+            <button data-role="button" class="bmg-button btn-block" id="lrl-send-review">Send review form</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Layout -->
+<div data-role="layout" id="reviews-leave-review-layout" data-id="reviews-leave-review">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Leave review</span>
+            </a>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,57 @@
+<!-- View -->
+<div data-role="view" id="reviews-detailed" data-reload="true" data-layout="reviews-detailed" data-before-show="setupReviewInfo">
+    <div id="review-activity-image" class="aty-img-cover image">
+        <div class="aty-cover">
+            <table width="100%;">
+                <tr>
+                    <td>
+                        <a data-role="button" id="review-ask-review">
+                            <img src="assets/img/activities/ask_review_icon_white.png" class="aty-img-review" /> 
+                            ASK FOR REVIEW
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="aty-middle-container">
+        <span id="review-activity-code"></span> | <span id="review-activity-country"></span> | <span id="review-activity-type"></span> 
+    </div>
+    <div class="aty-container" style="background: white; padding-top: 10px !important">
+        <p class="aty-title reviews-title" id="review-activity-title"></p>
+        <p style="margin-top: 10px;"><span style="font-weight: bold" id="review-count"></span> Reviews | Average rating: <span style="font-weight: bold" id="review-average-score"></span></p>
+
+        <div id="reviews-list-detailed"></div>
+    </div>
+</div>
+
+<!-- Layout -->
+<div data-role="layout" id="reviews-detailed-layout" data-id="reviews-detailed">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Review</span>
+            </a>
+        </div>
+    </header>
+</div>
+<script type="text/x-kendo-template" id="review-detailed-template">
+    <div class="aty-hr-container"><div class="aty-hr"></div></div>
+    <table width=" 100%">
+    <tr>
+    <td width="15%" valign="top">
+    <div style="background-image: url(#= avatar #);" class="review-user-image"></div>
+    <p style="font-weight: bold;"><span class="review-rate">#= rating #</span>/5</p>
+    </td>
+    <td width="85%" valign="top">
+    <p class="review-li-text">#= review #</p>
+    </td>
+    </tr>
+    <tr>
+    <td width="15%"></td>
+    <td width="85%"><p class="review-written-by">Written by <span style="font-weight: bold">#= written_by #</span> | #= date # </p></td>
+    </tr>
+    </table>
+</script>

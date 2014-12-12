@@ -1,0 +1,133 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100% !important;
+}
+
+input.holo {
+    width: 100%;
+    font-size: 18px;
+    height: 48px;
+    margin: 0;
+    padding: 8px 8px 6px 8px;
+    position: relative;
+    display: block;
+    outline: none;
+    border: none;
+    background: bottom left linear-gradient(#a9a9a9, #a9a9a9) no-repeat, bottom center linear-gradient(#a9a9a9, #a9a9a9) repeat-x, bottom right linear-gradient(#a9a9a9, #a9a9a9) no-repeat;
+    background-size: 1px 6px, 1px 1px, 1px 6px;
+}
+input.holo:hover, input.holo:focus {
+    background: bottom left linear-gradient(#0099cc, #0099cc) no-repeat, bottom center linear-gradient(#0099cc, #0099cc) repeat-x, bottom right linear-gradient(#0099cc, #0099cc) no-repeat;
+    background-size: 1px 6px, 1px 1px, 1px 6px;	
+} 
+
+/* Custom css for login view */
+#login .km-content{
+    background-image: url('../img/bg_img_v4.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 16px;
+}
+
+#logo {
+    width: 300px;
+    height: 70px;
+    margin: 48px auto 0 auto;
+    background-image: url('../img/logo_960.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#loginForm{
+    padding: 20px 0px 10px 0px;
+    background-color: white !important;
+    width: 90%;
+    height: 260px;
+    margin: 16px auto 16px auto;
+    position: absolute;
+    bottom: 0;
+}
+
+#loginBtn {
+    height: 48px;
+    margin-top: 25px;
+    text-align: center;
+    background: #3c7af7;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.link {
+    text-decoration: none;
+    font-size: small;
+    padding: 0 16px 16px 16px;
+    margin-top: 0 !important;
+    color: blue !important;
+}
+
+@media screen and (max-height: 350px) {
+    #logo {
+        width: 150px;
+        height: 50px;
+        margin: 5px auto 0px auto;
+    }
+    #loginForm{
+        margin: 16px auto 16px auto;
+        height: 140px;
+    }
+    #loginBtn {
+        display: block;
+        height: 20px;
+        padding: 2px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    input.holo {
+        font-size: 12px;
+        margin: 0;
+        height: 30px;
+    }
+    .form-group {
+        padding: 0;
+        margin: 0 15px 0 15px;
+    }
+
+}
+@media screen and (max-width: 300px) {
+    #loginForm{
+        width: 100%;
+    }
+    #login .km-content{
+        padding: 0;
+    }
+    .link {
+        font-size: x-small;
+    }
+}
+@media screen and (max-width: 200px) {
+    .link {
+        font-size: 7px;
+    }
+}
+
+.input-error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+}
+
+/* Custom css for dashboard view */
+#notifications-label {
+    text-align: center;
+    color: white;
+    background: #FF822E;
+}

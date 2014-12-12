@@ -1,0 +1,46 @@
+<!-- Bookings View -->
+<div data-role="view" id="reviews-leave-review" data-layout="reviews-leave-review" data-reload="true" data-init="initLeaveReview">
+    <div id="reviews-lr-top-container">
+        <p class="reviews-lr-trust">
+            <img src="assets/img/activities/ask_review_icon.png"  height="25" width="25" />
+            Publish reviews from your clients!
+        </p>
+        <p class="reviews-lr-note">
+            We accept reviews from your clients even if they did not book the activity through our website. Publishing reviews from your past clients is a great way to boost your booking request.
+            <br /><br />
+            Important: Please do not use this to request reviews from clients who have booked through BeMyGuest. They will already be receiving a request from us.
+        </p>
+    </div>
+    <div id="reviews-lr-bottom-container">
+        <center><span style="width: 100%; font-weight: bold; color: darkblue">Activity:</span></center>
+        <div class="holo-spinner">
+            <span>
+                <select id="lr-activity-title" class="form-control" style="font-size: 16px; height: 30px;">
+                    <option value="" disabled selected>Select Title</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Dr.">Dr.</option>
+                </select>
+            </span>
+            <hr />
+        </div>
+        
+        <button data-role="button" class="bmg-button btn-block" id="written-btn">Leave written review</button>
+        <p class="bmg-lr-or">or</p>
+        <button data-role="button" class="bmg-button btn-block" id="email-btn">E-mail review form</button>
+    </div>
+</div>
+
+
+<!-- Bookings Layout -->
+<div data-role="layout" id="reviews-leave-review-layout" data-id="reviews-leave-review">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Leave review</span>
+            </a>
+        </div>
+    </header>
+</div>

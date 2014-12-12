@@ -1,0 +1,117 @@
+<!-- Bookings Completed View -->
+<div data-role="view" id="bookings-detailed" data-reload="true" data-layout="bookings-detailed" data-before-show="setupBookingDetails">
+    <div id="bmg-status-div" class="bmg-status"><img src="assets/img/bookings/alert_icon.png" height="13" width="13" />
+        <span id="booking-status-message">The booking has been completed</span>
+    </div>
+    <div id="booking-image" class="bmg-img-cover image">
+        <div class="bmg-img-cover-top">
+            <p class="bmg-request-time">
+                <img src="assets/img/bookings/clock_icon.png" height="16" width="16"  />
+                <span id="booking-when"></span>
+            </p>
+        </div>
+    </div>
+    <div class="bmg-container" style="background: white;">
+        <p class="bmg-bookings-request-title"><span id="booking-code"></span><span id="booking-title"></span></p>
+        <p class="bmg-bookings-label">Booking Details</p>
+        <div class="bmg-hr-styled"></div>
+        <div class="bmg-booking-details">
+            <p class="bmg-booking-details-label">Guest Details</p>
+            <p class="bmg-booking-details-value"><span id="booking-guest-name"></span></p>
+            <p class="bmg-booking-details-value booking-hidden" style="display: none;" id="booking-contact-div">
+                Phone: <a id="booking-guest-phone" class='bmg-bookings-link'></a>
+                <a id="booking-guest-call"><img class='bmg-booking-details-value-img' src="assets/img/bookings/phone_icon.png" height="18" width="22"  /></a>
+                <a id="booking-guest-message"><img class='bmg-booking-details-value-img' src="assets/img/bookings/message_icon.png" height="18" width="24"  /></a>
+            </p>
+            <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            <p class="bmg-booking-details-label">Requested Date</p>
+            <p class="bmg-booking-details-value"><span id="booking-requested-date"></span></p>
+            <div class='bmg-hr-container' style='padding-bottom: 8px;'><div class='bmg-booking-details-hr'></div></div>
+            <p class="bmg-booking-details-label-sm">Adults: <span style='font-weight: bold;' id="booking-adult-count"></span><span class='bmg-booking-details-value-right' id="booking-adult-price"></span></p>
+            <p class="bmg-booking-details-label-sm">Children: <span style='font-weight: bold;' id="booking-children-count"></span><span class='bmg-booking-details-value-right' id="booking-children-price"></span></p>
+            <div id="bmg-security-deposit-div">
+                <p class="bmg-booking-details-label-sm">Security Deposit: <span class='bmg-booking-details-value-right' id="booking-security-deposit"></span></p>
+            </div>
+            <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            <div id="bmg-accomodation-div">
+                <p class="bmg-booking-details-label-sm">Accommodation: <span style='font-weight: bold;' id="booking-accommodation"></span></p>
+                <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            </div>
+            <div id="booking-optional-activity-div">
+                <p class="bmg-booking-details-label-sm">Optional Activity: <span style='font-weight: bold;' id="booking-optional-activity"></span><span class='bmg-booking-details-value-right' id="booking-optional-activity-price"></span></p>
+                <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            </div>
+            <p class="bmg-booking-details-label">Revenue</p>
+            <p><span class="bmg-booking-details-value">Total</span><span class="bmg-booking-details-value-right" style='font-size: 20px;' id="booking-revenue"></span></p>
+            <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            <div id="booking-meeting-point-div">
+                <p class="bmg-booking-details-label">Meetup point</p>
+                <p class="bmg-booking-details-label-md" id="booking-meetup-point"></p>
+            </div>
+            <div id="booking-additional-notes-div">
+                <p class='bmg-booking-details-label-xs'><strong>Additional Notes: </strong><span id="booking-additional-notes"></span></p>
+                <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            </div>
+
+            <p class="bmg-booking-details-label">Booking request ID</p>
+            <p class="bmg-booking-details-value" id="booking-request-id"></p>
+            <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
+            <div id="booking-message-from-guest-div">
+                <p class="bmg-booking-details-label">Message from guest:</p>
+                <p class="bmg-booking-details-guest-message" id="booking-message-from-guest"></p>
+            </div>
+
+
+            <!-- Booking Request -->
+            <div id="booking-reuqest-div" style="display: none;" class="booking-hidden">
+                <table class='bmg-booking-table' width='100%'>
+                    <tr>
+                        <td width='13%' style='padding-left: 16px;' class="booking-reject"><img src="assets/img/bookings/reject_icon.png" width='40' height='40' /></td>
+                        <td width='35%' class="booking-reject"><span class='bmg-booking-table-text'>Reject</span></td>
+                        <td width='15%' style='padding-left: 16px;' class="booking-accept"><img src="assets/img/bookings/accept_icon.png" width='55' height='40' /></td>
+                        <td width='37%' class="booking-accept"><span class='bmg-booking-table-text'>Accept</span></td>
+                    </tr>
+                </table>
+                <p class='bmg-booking-details-xss'>** Guest contact details and contact information will be shared when the booking has been accepted.</p>
+            </div>
+            <!-- Booking Completed -->
+            <div id="booking-completed-div" style="display: none;" class="booking-hidden">
+                <p class="bmg-booking-details-text-completed">You've completed the booking</p>
+                <!--<p class='bmg-booking-details-xss' style='text-align: center;'>The booking was completed</p>-->
+                <p class='bmg-booking-details-review'><img src="assets/img/bookings/review_icon.png" height="22" width="22" /> Ask for Review</p>
+            </div>
+            <!-- Booking Rejected -->
+            <div id="booking-rejected-div" style="display: none;" class="booking-hidden">
+                <p class="bmg-booking-details-text-rejected">You've rejected the request</p>
+                <!--<p class='bmg-booking-details-xss' style='text-align: center;'>The booking was rejected on 21 May - 25 May 2014</p>-->
+            </div>
+            <!-- Booking Expired -->
+            <div id="booking-expired-div" style="display: none;" class="booking-hidden">
+                <p class="bmg-booking-details-text-rejected">You did not respond in time</p>
+                <p class='bmg-booking-details-xss' style='text-align: center;'>The booking request was valid for 48 hours. After 48 hours passed there is no longer an option to accept the request.</p>
+            </div>
+
+
+            <div class="bmg-hr-circle"></div>
+            <div class='bmg-booking-questions'>
+                <p class='bmg-booking-questions-text-large'>Have questions?</p>
+                <p class='bmg-booking-questions-text'><strong>Call us: </strong><a href='tel:+6567439812' class='bmg-bookings-link'>+65 6743 9812</a></p>
+                <!--<p class='bmg-booking-questions-text'><strong>After hours: </strong><a href='#' class='bmg-bookings-link'>+65 8530 5399</a></p>-->
+                <p class='bmg-booking-questions-text'><strong>Email us: </strong><a href='mailto:partners@bemyguest.com.sg' class='bmg-bookings-link'>partners@bemyguest.com.sg</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Layout -->
+<div data-role="layout" id="bookings-detailed-layout" data-id="bookings-detailed">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left" style="border: none;">
+                <img src="assets/img/bookings/back_arrow.png" height="22" width="14" style="margin-right: 5px;" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Booking Details</span>
+            </a>
+        </div>
+    </header>
+</div>

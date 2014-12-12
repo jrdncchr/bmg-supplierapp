@@ -1,0 +1,64 @@
+<!-- Bookings View -->
+<div data-role="view" id="reviews-leave-review" data-layout="reviews-leave-review" data-reload="true" data-before-show="clearReviewNow" data-init="initLeaveReviewNow">
+    <div class="bmg-lrnow-top-container">
+        <p class="truncate" id="lrn-activity-title"></p>
+    </div>
+    <div class="bmg-lrnow-container">
+        <div class="bmg-input-div">
+            <span class="bmg-input-label">Name</span>
+            <input type="text" class="bmg-input profile-input" id="lrn-name" placeholder="Enter name" />
+        </div>
+        <div class="bmg-input-div">
+            <span class="bmg-input-label">Email</span>
+            <input type="text" class="bmg-input profile-input" id="lrn-email" placeholder="Enter email" />
+        </div>
+        <div class="bmg-input-div" style="height: 130px !important;">
+            <span class="bmg-input-label">Review</span>
+            <textarea style="max-height: 100px; min-height: 100px; height: 100px; " class="bmg-input profile-input" id="lrn-review" placeholder="How was the activity?"></textarea>
+        </div>
+        <div class="bmg-input-div" style="height: 100px;">
+            <span class="bmg-input-label">Rating</span>
+            <input id="lrn-ratings" type="range" style="width: 100%;" min=".5" max="5" step=".5" />
+            <p class="bmg-lrnow-ratings">
+                <span id="bmg-lrnow-rate" style="font-weight: bold;" class="bmg-success">3.5</span> - 
+                <span id="bmg-lrnow-ratemsg"></span>
+            </p>
+
+        </div>
+        <div class="form-group">
+            <span class="bmg-input-label" style="margin: 8px 8px;">Image</span>
+            <a id="lrn-add-image" href="#review-modal-add-image" data-rel="modalview" data-role="button" style="width: 100%;">
+                <div id="bmg-lrnow-add-photo" class="bmg-lrnow-add-photo" style="vertical-align: bottom; margin: 0 16px;">
+                    <div style="padding-top: 8px;">
+                        <img src="assets/img/reviews/camera_icon.png" height="20" width="25" />
+                        Add some pictures!
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-12 form-group">
+            <button id="leave-review-now-submitBtn" data-role="button" class="bmg-button btn-block">Submit Review</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Layout -->
+<div data-role="layout" id="reviews-leave-review-layout" data-id="reviews-leave-review">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Leave review</span>
+            </a>
+        </div>
+    </header>
+</div>
+
+<!-- Modal View for Add-image -->
+<div data-role="modalview" id="review-modal-add-image" style="width: 90%; padding: 10px;"  data-modal="false">
+    <p class="text-center" style="font-weight: bold;">Upload Photo</p>
+    <button class="btn btn-block btn-primary btn-lg" id="review-upload-capture" onclick="addReviewImage('capture');">Capture Image</button>
+    <button class="btn btn-block btn-primary btn-lg" id="review-upload-existing" onclick="addReviewImage('existing');">Use Existing Photo</button>
+</div>

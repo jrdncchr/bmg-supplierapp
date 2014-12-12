@@ -1,0 +1,165 @@
+#bmg-overflow-bar {
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+    display: none;
+}
+#bmg-overflow-bar li{
+    padding: 16px;
+    margin: 0;
+}
+#bmg-overflow-bar img{
+    margin-right: 16px;
+}
+
+li a:hover {
+    color: background;
+}
+.topnav {
+    background-color: #2d5ac9;
+    color: white;
+    text-shadow: 4px;
+}
+.topnav td {
+    /*border-right: 1px solid activeborder;*/
+}
+.topnav td:last-child {
+    border-right: none;
+}
+.topnav-left {
+    width: 34%;
+    /*border-right: 1px solid #404041;*/
+    text-align: left;
+    padding-left: 8px;
+}
+.topnav-middle {
+    width: 32%;
+    /*border-right: 1px solid #404041;*/
+    text-align: center;
+}
+.topnav-right {
+    width: 34%;
+    text-align: right;
+    padding-right: 8px;
+}
+.topnav-link {
+    text-decoration: none;
+    border: none !important;
+}
+.topnav-link:hover {
+    color: white;
+}
+.bmg-heading {
+    background-image: url('../../img/dashboard/notification_bg.jpg');
+    padding: 2px;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+}
+.bmg-restrict li{
+    background: lightgray;
+    padding: 0;
+}
+
+.bmg-list li{
+    background: white;
+    padding: 0;
+}
+.bmg-list-container {
+    background: white;
+    border-collapse: collapse
+}
+.bmg-list-container td {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.bmg-list-container tr {
+    height: 100px;
+}
+.bmg-list-container p {
+    margin: 0px 0px 5px 3px;
+}
+.bmg-li-img-container {
+    position: relative;
+    overflow-y: hidden;
+}
+.bmg-li-img {
+    min-height: 110px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+}
+.bmg-li-img-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-box-shadow: inset -10px 0px 10px -2px white;
+    box-shadow: inset -10px 0px 10px -2px white;
+}
+.bmg-li-title {
+    font-size: 14px;
+    font-weight: bold; 
+}
+.bmg-li-booked-by {
+    font-size: 12px;
+    margin-top: 10px !important;
+}
+.bmg-li-envelop {
+    text-align: center;
+}
+.bmg-li-envelop p {
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* CSS for BMG Notifications*/
+.notification {
+    margin: 5px;
+}
+.notification p{
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+.n-title {
+    font-weight: bold;
+}
+.n-content {
+    font-size: 12px;
+    letter-spacing: -1px;
+}
+
+/* Custom Drawer CSS */
+.prof-name {
+    font-weight: bold;
+}
+
+#main-drawer li {
+    font-size: 18px;
+}
+
+#main-drawer img {
+    margin-right: 10px;
+    float: left;
+}
+
+#drawer-profile-picture {
+    height: 50px;
+    width: 50px;
+}
+
+#notifications li{
+    background: whitesmoke !important;
+}
+
+#upcomming-bookings-scroller {
+    background-color: lightgray;
+    height: 600px;
+}
+
+.dashboard-navbar {
+    padding-top: 10px !important;
+    height: 40px !important;
+    /*font-weight: bold;*/
+}

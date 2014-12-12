@@ -1,0 +1,117 @@
+<!-- Bookings View -->
+<div data-role="view" id="bookings" data-layout="bookings" data-reload="true" data-before-show="setupBookings">
+    <div class="topnav2 bookings-nav">
+        <table width="100%">
+            <tr>
+                <td class="topnav-active topnav2-left" id="bookings-new"  style='border-right: none !important;'>
+                    <a style='border: none !important;'> NEW <span class="badge" id="bookings-new-count"></span></a>
+                </td>
+                <td class="topnav2-middle" id="bookings-confirmed" style='border-right: none !important;'>
+                    <a style='border: none !important;'> CONFIRMED </a>
+                </td>
+                <td class="topnav2-right" id="bookings-past">
+                    <a style='border: none !important;'> PAST </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <ul data-role="listview" class="bmg-list" id="bookings-list">
+    </ul>
+    <div class='bookings-no-activity'  id='bookings-empty' style='display: none;'>
+        <p class='bookings-no-activity-text' id="bookings-empty-status">There is no new bookings request.</p>
+        <p class='bookings-no-activity-text'>Try sharing your activities to spread the word about them and gain new bookings. </p>
+        <button class='btn btn-block bookings-no-activity-button' onclick="app.navigate('#public_html/activities.html');">Promote Activities</button>
+    </div>
+    <ul data-role="listview" class="bmg-list" style='display: none;' id='bookings-view-all-div'>
+        <li></li>
+        <li>
+            <div id="bookings-view-all" class="view-all"><a data-transition='fade' data-role='button'>VIEW ALL <span style="text-transform: uppercase;" id="bookings-view-all-status"></span> BOOKINGS &ShortDownArrow;</a></div>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Bookings Layout -->
+<div data-role="layout" id="bookings-layout" data-id="bookings">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Bookings</span>
+            </a>
+        </div>
+    </header>
+</div>
+<script type="text/x-kendo-template" id="booking-template-new">
+    <li>
+    <table width="100%" class="bmg-list-container" cellspacing="0">
+    <tr>
+    <td width="30%">
+    <a data-transition="fade" data-id="#= id #" style="border: none;" class="booking">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= booking_image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="70%" class="bmg-li-text-container">
+    <a data-transition="fade" data-id="#= id #" class="booking" style="border: none;">
+    <p class="profit-label">#= host_revenue #</p>
+    <p class="bmg-li-text-12">Expires in:<span class="bmg-expire-time">#= when #</span></p>
+    <p class="bmg-li-title-12">#= title #</p>
+    <p class="bmg-li-text-12">#= arrival_date # | #= number_of_guests # People</p>
+    </a>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>
+<script type="text/x-kendo-template" id="booking-template-confirmed">
+    <li>
+    <table width="100%" class="bmg-list-container" cellspacing="0">
+    <tr>
+    <td width="30%">
+    <a data-transition="fade" data-id="#= id #" style="border: none;" class="booking">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= booking_image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="70%" class="bmg-li-text-container">
+    <a data-transition="fade" data-id="#= id #" class="booking" style="border: none;">
+    <p class="profit-label">#= host_revenue #</p>
+    <p class="bmg-li-text-12">Starts: <span class="bmg-expire-time">#= when #</span></p>
+    <p class="bmg-li-title-12">#= title #</p>
+    <p class="bmg-li-text-12">#= arrival_date # | #= number_of_guests # People</p>
+    </a>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>
+<script type="text/x-kendo-template" id="booking-template-past">
+    <li>
+    <table width="100%" class="bmg-list-container" cellspacing="0">
+    <tr>
+    <td width="30%">
+    <a data-transition="fade" data-id="#= id #" style="border: none;" class="booking">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= booking_image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="70%" class="bmg-li-text-container">
+    <a data-transition="fade" data-id="#= id #" class="booking" style="border: none;">
+    <p class="profit-label">#= host_revenue #</p>
+    <p class="bmg-li-text-12">#= past_label #: <span class="bmg-expire-time">#= when #</span></p>
+    <p class="bmg-li-title-12">#= title #</p>
+    <p class="bmg-li-text-12">#= arrival_date # | #= number_of_guests # People</p>
+    </a>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>

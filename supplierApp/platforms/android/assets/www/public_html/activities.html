@@ -1,0 +1,105 @@
+<!-- Dashboard View -->
+<div data-role="view" id="activities" data-layout="activities" data-before-show="setupActivities">
+    <div class="topnav2 activities-nav">
+        <table width="100%">
+            <tr>
+                <td class="topnav2-left topnav-active" id="topnav-active">
+                    <a data-role='button' style='border: none !important;' href='#public_html/activities.html' data-transition='fade' class='topnav-link'>ACTIVE</a>
+                </td>
+                <td class="topnav2-middle" id="topnav-pending">
+                    <a data-role='button' style='border: none !important;' data-transition='fade' class='topnav-link'>PENDING</a>
+                </td>
+                <td class="topnav2-right" id="topnav-disabled">
+                    <a data-role='button' style='border: none !important;' data-transition='fade' class='topnav-link'>DISABLED</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <ul data-role="listview" class="bmg-list" id="activities-list">
+    </ul>
+    <div id='activities-empty' class="empty-view" style='display: none;'>
+        <p>You have no <span id="activity-empty-status"></span> activities</p>
+        <!--        <p>Try adding new photos in your activities</p>-->
+    </div>
+    <ul data-role="listview" class="bmg-restrict">
+        <li></li>
+        <li>
+            <p class="bmg-mobile-restrict">
+                The mobile app is restricted to a certain functions. To add activities please visit the 
+                <a href="http://bemyguest.com.sg/" style="color: #ef3800; text-decoration: underline !important;">desktop version.</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Dashboard Layout -->
+<div data-role="layout" id="activities-layout" data-id="activities">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-transition="fade" data-align="left" style="border: none;">
+                <img src="assets/img/drawer/back_arrow.png" style="margin-right: 5px;" height="20" width="12" />
+                <img src='assets/img/nav_logo.png' style="margin-right: 5px;" /> 
+                <span data-role="view-title">Activities</span>
+            </a>
+        </div>
+    </header>
+</div>
+
+<script type="text/x-kendo-template" id="activities-template">
+    <li>
+    <table width="100%" class="bmg-list-container">
+    <tr>
+    <td width="30%">
+    <a data-role="button" data-transition="fade" data-id="#= id #" class="activity" style="border: none;">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="50%">
+    <a data-role="button" data-transition="fade" data-id="#= id #" style="border: none;" class="activity">
+    <p class="bmg-li-title">#= title #</p>
+    <p class="bmg-li-booked-by"><strong>#= code #</strong> | #= country # | #= type #</p>
+    </a>
+    </td>
+    <td width="10%">
+    <div class="bmg-li-envelop">
+    <img src="assets/img/activities/share_icon.png" height="23" width="23" style="margin-right: 12px;" onclick="window.plugins.socialsharing.share('Message and link', null, null, '#= deep_link #')" />
+    </div>
+    </td>
+    <td width="10%">
+    <div class="bmg-li-envelop">
+    <a data-role="button" data-transition="fade" data-id="#= id #" class="leave_review" style="border: none;">
+    <img src="assets/img/activities/ask_review_icon.png"  height="23" width="23" style="margin: 0 12px;" />
+    </a>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>
+
+<script type="text/x-kendo-template" id="activities-template-inactive">
+    <li>
+    <table width="100%" class="bmg-list-container">
+    <tr>
+    <td width="30%">
+    <a data-role="button" data-transition="fade" data-id="#= id #" class="activity" style="border: none;">
+    <div class="bmg-li-img-container">
+    <div class="bmg-li-img image" style="background-image: url(#= image['175x112'] #);"></div>
+    <div class="bmg-li-img-mask"></div>
+    </div>
+    </a>
+    </td>
+    <td width="70%">
+    <a data-role="button" data-transition="fade" data-id="#= id #" style="border: none;" class="activity">
+    <p class="bmg-li-title">#= title #</p>
+    <p class="bmg-li-booked-by"><strong>#= code #</strong> | #= country # | #= type #</p>
+    </a>
+    </td>
+    </tr>
+    </table>
+    </li>
+</script>
