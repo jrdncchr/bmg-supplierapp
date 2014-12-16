@@ -115,6 +115,7 @@ function signUp(data) {
 /* ========================================================= 
  PROFILES
  =========================================================== */
+var android_checked = false;
 function readProfile() {
     var api_key = localStorage.getItem('api_key');
     kendo.mobile.application.showLoading();
@@ -128,6 +129,26 @@ function readProfile() {
             profile = data;
             localStorage.setObject('profile', profile);
             setupUserDetails();
+            
+            //check android if set
+            if (android_checked === false) {
+                if (!profile.android_id) {
+                    var formData = new FormData();
+                    formData.append('android_id', localStorage.getItem('regId'));
+                    saveProfile(formData, "updateAndroid");
+                } else {
+                    var android_id = localStorage.getItem('regId');
+                    if (android_id !== profile.android_id) {
+                        var confirmation = confirm("You are using a different device, do you want to set this as your default?");
+                        if (confirmation) {
+                            var formData = new FormData();
+                            formData.append('android_id', localStorage.getItem('regId'));
+                            saveProfile(formData, "updateAndroid");
+                        }
+                    }
+                }
+                android_checked = true;
+            }
             kendo.mobile.application.hideLoading();
         },
         error: function (error) {
@@ -138,7 +159,8 @@ function readProfile() {
 
 function saveProfile(data, action) {
     data.append('api_key', localStorage.getItem('api_key'));
-    data.append('email', $('#profile-email').val());
+    var email = $('#profile-email').val() ? $('#profile-email').val() : profile.email;
+    data.append('email', email);
     $.ajax({
         url: api_url + "user/update_profile",
         data: data,

@@ -1,5 +1,5 @@
 function initSignUp() {
-    $("#sign-up-btn").click(function() {
+    $("#sign-up-btn").click(function () {
         if (validateSignupFields()) {
             kendo.mobile.application.showLoading();
             var data = {
@@ -10,13 +10,14 @@ function initSignUp() {
                 phone: $('#reg-phone').val(),
                 password: $('#reg-password').val(),
                 user_type: $('#reg-user-type').val(),
-                admin_action: "supplier"
+                admin_action: "supplier",
+                android_id: localStorage.getItem('regId')
             };
             signUp(data);
         }
     });
 
-    $('#reg-user-type').change(function() {
+    $('#reg-user-type').change(function () {
         if ($(this).val() !== "") {
             $(this).parent().css('color', 'black');
         }
@@ -58,11 +59,16 @@ function validateSignupFields() {
         show_error("Please select a type");
         return false;
     }
+    
+    if(null === localStorage.getItem('regId') || localStorage.getItem('regId') === "") {
+        show_error("Android Google ID not found!");
+        return false;
+    }
     return true;
 }
 
 function clearSignupFields() {
-    $('#signupForm').find(".reg-field").each(function() {
+    $('#signupForm').find(".reg-field").each(function () {
         $(this).val("");
     });
 }
