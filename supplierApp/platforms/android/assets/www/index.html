@@ -153,11 +153,11 @@
 
         <!-- Custom Scripts for BMG App -->
         <script>
-//                                    var api_url = "https://api.bemyguest.com.sg/api1/";
-                                    //                                    var api_url = "http://devph.bemyguest.com.sg/api1/";
-                                    //                                    var api_url = "http://playground.bemyguest.com.sg/api1/";
+                                    var api_url = "https://api.bemyguest.com.sg/api1/";
+//                                    var api_url = "http://dev4.bemyguest.sg/api1/";
+//                                    var api_url = "http://staging.bemyguest.sg/api1/";
 //                                    var api_url = "http://amazingbemyguest/api1/";
-                                    var api_url = "http://192.168.1.180/api1/";
+//                                    var api_url = "http://192.168.1.180/api1/";
 
                                     var app = new kendo.mobile.Application(document.body, {transition: 'none'});
                                     /* Model used for the login view, it binds the login method in the login button click event */
@@ -258,7 +258,7 @@
                                         console.log('result = ' + result);
                                     }
                                     function errorHandler(error) {
-                                        alert('error = ' + error);
+                                        console.log('result = ' + error);
                                     }
 
                                     function onNotification(e) {
@@ -272,13 +272,12 @@
                                                 }
                                                 break;
                                             default:
-                                                alert("Event receive is not 'registered'.");
+//                                                alert("Event receive is not 'registered'.");
                                                 break;
                                         }
                                     }
 
         </script>
-        <script src="http://jsconsole.com/remote.js?751EE02F-8B7F-409E-A559-8955944A515A"></script>
 
         <script src="assets/js/bmg/all.js"></script>
         <script src="assets/js/bmg/api.js"></script>

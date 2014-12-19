@@ -129,7 +129,7 @@ function readProfile() {
             profile = data;
             localStorage.setObject('profile', profile);
             setupUserDetails();
-            
+
             //check android if set
             if (android_checked === false) {
                 if (!profile.android_id) {
@@ -296,7 +296,6 @@ function getActivitiesList(cb) {
         dataType: 'json',
         success: function (data) {
             if (data.error) {
-                alert("Something went wrong!");
                 kendo.mobile.application.hideLoading();
             } else {
                 var list = new Array();
@@ -376,50 +375,48 @@ function getReviews() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            if (data.error) {
-                $('#reviews-empty').show();
-                kendo.mobile.application.hideLoading();
-            } else {
-                for (key in data) {
-                    if (parseInt(data[key].is_new)) {
-                        newReviews.push(data[key]);
-                        allReviews.push(data[key]);
-                    } else {
-                        allReviews.push(data[key]);
-                    }
-                }
-                if (newReviews.length > 0) {
-                    $('#activity-new-count').html(newReviews.length);
-                    $("#reviews-empty").hide();
+            for (key in data) {
+                if (parseInt(data[key].is_new)) {
+                    newReviews.push(data[key]);
+                    allReviews.push(data[key]);
                 } else {
-                    $('#activity-new-count').html("");
-                    $("#reviews-empty").show();
+                    allReviews.push(data[key]);
                 }
-
-                var template = kendo.template($("#reviews-template").html());
-                if (reviewCategory === "new") {
-                    list = newReviews;
-                } else {
-                    list = allReviews;
-                    $("#reviews-empty").hide();
-                }
-                var dataSource = new kendo.data.DataSource({
-                    data: list,
-                    change: function () {
-                        $("#reviews-list").html(kendo.render(template, this.view()));
-                    }
-                });
-                dataSource.read();
-//                $('.review-text-2').css('width', $(window).width() - 180);
-                $('.review').off('click').click(function () {
-                    var id = $(this).attr('data-id');
-                    getReviewDetails(id);
-                });
             }
+            if (newReviews.length > 0) {
+                $('#activity-new-count').html(newReviews.length);
+                $("#reviews-empty").hide();
+            } else {
+                $('#activity-new-count').html("");
+                $("#reviews-empty").show();
+            }
+
+            var template = kendo.template($("#reviews-template").html());
+            if (reviewCategory === "new") {
+                list = newReviews;
+            } else {
+                list = allReviews;
+                $("#reviews-empty").hide();
+            }
+            var dataSource = new kendo.data.DataSource({
+                data: list,
+                change: function () {
+                    $("#reviews-list").html(kendo.render(template, this.view()));
+                }
+            });
+            dataSource.read();
+//                $('.review-text-2').css('width', $(window).width() - 180);
+            $('.review').off('click').click(function () {
+                var id = $(this).attr('data-id');
+                getReviewDetails(id);
+            });
+
             kendo.mobile.application.hideLoading();
         },
         error: function (error) {
             console.log(JSON.stringify(error));
+            $('#reviews-empty').show();
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -484,6 +481,9 @@ function getNewReviewsCount(callback) {
                 n = list.length;
             }
             return callback(n);
+        },
+        error: function (error) {
+            return callback(0);
         }
     });
 }
@@ -520,40 +520,37 @@ function getUpcomingBookings(n) {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            if (data.error) {
-                $('#upcoming-bookings-empty').fadeIn('fast');
-                $('#upcoming-booking-view-all').fadeOut('fast');
-                kendo.mobile.application.hideLoading();
-            } else {
-                var list = new Array();
-                for (key in data) {
-                    list.push(data[key]);
-                }
-                localStorage.setObject('upcomingBookings', list);
-                var template = kendo.template($("#upcoming-booking-template").html());
-                var dataSource = new kendo.data.DataSource({
-                    data: list,
-                    pageSize: n,
-                    change: function () {
-                        $("#upcoming-bookings").html(kendo.render(template, this.view()));
-                    }
-                });
-                dataSource.read();
-                $('#upcoming-bookings').fadeIn('fast');
-                $('#upcoming-bookings-empty').fadeOut('fast');
-                if (list.length > 4) {
-                    $('#upcoming-booking-view-all').fadeIn('fast');
-                } else {
-                    $('#upcoming-booking-view-all').fadeOut('fast');
-                }
-
-                $('.booking').off('click').click(function () {
-                    getBookingDetails($(this).attr('data-id'), 'confirmed');
-                });
+            var list = new Array();
+            for (key in data) {
+                list.push(data[key]);
             }
+            localStorage.setObject('upcomingBookings', list);
+            var template = kendo.template($("#upcoming-booking-template").html());
+            var dataSource = new kendo.data.DataSource({
+                data: list,
+                pageSize: n,
+                change: function () {
+                    $("#upcoming-bookings").html(kendo.render(template, this.view()));
+                }
+            });
+            dataSource.read();
+            $('#upcoming-bookings').fadeIn('fast');
+            $('#upcoming-bookings-empty').fadeOut('fast');
+            if (list.length > 4) {
+                $('#upcoming-booking-view-all').fadeIn('fast');
+            } else {
+                $('#upcoming-booking-view-all').fadeOut('fast');
+            }
+
+            $('.booking').off('click').click(function () {
+                getBookingDetails($(this).attr('data-id'), 'confirmed');
+            });
+            kendo.mobile.application.hideLoading();
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            $('#upcoming-bookings-empty').fadeIn('fast');
+            $('#upcoming-booking-view-all').fadeOut('fast');
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -575,6 +572,9 @@ function getNewBookingsCount(callback) {
                 n = list.length;
             }
             return callback(n);
+        },
+        error: function (error) {
+            return callback(0);
         }
     });
 }
@@ -588,58 +588,54 @@ function getBookings(n, method, status) {
         type: "GET",
         dataType: 'json',
         success: function (data) {
+            $('#bookings-view-all-status').html(status);
+            var list = new Array();
+            for (key in data) {
+                data[key].host_revenue = data[key].host_revenue.toString().replace(/\d+/g, '') + " " + data[key].host_revenue.toString().replace(/^\D+/g, '');
+                list.push(data[key]);
+            }
+            if (method === "get_new_bookings") {
+                if (list.length > 0) {
+                    $('#bookings-new-count').html(list.length);
+                } else {
+                    $('#bookings-new-count').html("");
+                }
+            }
+            var template = kendo.template($("#booking-template-new").html());
+            if (status === "confirmed") {
+                template = kendo.template($("#booking-template-confirmed").html());
+            } else if (status === "past") {
+                template = kendo.template($("#booking-template-past").html());
+            }
+            list.reverse();
+            var dataSource = new kendo.data.DataSource({
+                data: list,
+                pageSize: list.length,
+                change: function () {
+                    $("#bookings-list").html(kendo.render(template, this.view()));
+                }
+            });
+            dataSource.read();
+            if (list.length > 0) {
+                $('#bookings-list').fadeIn('fast');
+                $('#bookings-empty').fadeOut('fast');
+            } else {
+                $("#bookings-empty").fadeIn('fast');
+                $('#bookings-list').fadeOut('fast');
+            }
+            $('.booking').off('click').click(function () {
+                selectedBookingId = $(this).attr('data-id');
+                getBookingDetails(selectedBookingId, "", null);
+            });
+            kendo.mobile.application.hideLoading();
+        },
+        error: function (error) {
             $('#bookings-empty-status').html("There is no " + status + " bookings request.");
             if (status === "confirmed") {
                 $('#bookings-empty-status').html("You have no confirmed upcoming bookings.");
             }
-            $('#bookings-view-all-status').html(status);
-            if (data.error) {
-                showEmptyBookings();
-                kendo.mobile.application.hideLoading();
-            } else {
-                var list = new Array();
-                for (key in data) {
-                    data[key].host_revenue = data[key].host_revenue.toString().replace(/\d+/g, '') + " " + data[key].host_revenue.toString().replace(/^\D+/g, '');
-                    list.push(data[key]);
-                }
-                if (method === "get_new_bookings") {
-                    if (list.length > 0) {
-                        $('#bookings-new-count').html(list.length);
-                    } else {
-                        $('#bookings-new-count').html("");
-                    }
-                }
-                var template = kendo.template($("#booking-template-new").html());
-                if (status === "confirmed") {
-                    template = kendo.template($("#booking-template-confirmed").html());
-                } else if (status === "past") {
-                    template = kendo.template($("#booking-template-past").html());
-                }
-                list.reverse();
-                var dataSource = new kendo.data.DataSource({
-                    data: list,
-                    pageSize: list.length,
-                    change: function () {
-                        $("#bookings-list").html(kendo.render(template, this.view()));
-                    }
-                });
-                dataSource.read();
-                if (list.length > 0) {
-                    $('#bookings-list').fadeIn('fast');
-                    $('#bookings-empty').fadeOut('fast');
-                } else {
-                    $("#bookings-empty").fadeIn('fast');
-                    $('#bookings-list').fadeOut('fast');
-                }
-                $('.booking').off('click').click(function () {
-                    selectedBookingId = $(this).attr('data-id');
-                    getBookingDetails(selectedBookingId, "", null);
-                });
-                kendo.mobile.application.hideLoading();
-            }
-        },
-        error: function (error) {
-            console.log(JSON.stringify(error));
+            showEmptyBookings();
+            kendo.mobile.application.hideLoading();
         }
     });
 }
