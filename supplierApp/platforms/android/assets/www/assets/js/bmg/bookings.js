@@ -131,27 +131,25 @@ function setupBookingDetails() {
 
 function activateBookingDetailsEvents() {
     $('.booking-accept').off('click').click(function () {
-        $('#bmg-confirm-okay').off('click').click(function () {
-            $("#bmg-confirm").kendoMobileModalView("close");
+        var ok = confirm("Confirm accept booking request.");
+        if (ok) {
             approveBooking(function () {
                 getBookingDetails(selectedBookingId, "confirmed", function () {
                     setupBookingDetails();
                     show_success("You have accepted the booking.");
                 });
             });
-        });
-        show_confirm('Confirm accept', true);
+        }
     });
     $('.booking-reject').off('click').click(function () {
-        $('#bmg-confirm-okay').off('click').click(function () {
-            $("#bmg-confirm").kendoMobileModalView("close");
+        var ok = confirm("Confirm reject booking request");
+        if (ok) {
             rejectBooking(function () {
                 getBookingDetails(selectedBookingId, "past", function () {
                     setupBookingDetails();
                     show_success("You have rejected the booking.");
                 });
             });
-        });
-        show_confirm('Confirm reject', false);
+        }
     });
 }

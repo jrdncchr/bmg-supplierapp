@@ -25,7 +25,9 @@ function user_login(email, password) {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            show_error(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -43,6 +45,11 @@ function change_password(api_key, old_password, new_password, callback) {
                 show_success("Changing Password Successful");
             }
             callback();
+        },
+        error: function (error) {
+            var jsonError = JSON.parse(error['responseText']);
+            show_error(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -55,15 +62,22 @@ function logout() {
         type: 'POST',
         data: {api_key: api_key},
         success: function (data) {
-            $('#upcoming-bookings-empty').fadeOut('fast');
-            $('#upcoming-bookings').fadeOut('fast');
-            $('#upcoming-booking-view-all').fadeOut('fast');
-            localStorage.clear();
-            kendo.mobile.application.hideLoading();
-            app.navigate("#");
+            if (data.error) {
+                alert(data.error);
+                kendo.mobile.application.hideLoading();
+            } else {
+                $('#upcoming-bookings-empty').fadeOut('fast');
+                $('#upcoming-bookings').fadeOut('fast');
+                $('#upcoming-booking-view-all').fadeOut('fast');
+                localStorage.clear();
+                kendo.mobile.application.hideLoading();
+                app.navigate("#");
+            }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -76,14 +90,17 @@ function retrieve_password(e) {
         data: {e: e},
         success: function (data) {
             if (data.error) {
-                $("#fwEmailError").html(data.error);
+                alert(data.error);
+                kendo.mobile.application.hideLoading();
             } else {
                 $("#fwEmailError").html("Retrieving password successful!");
             }
             kendo.mobile.application.hideLoading();
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            $("#fwEmailError").html(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -103,11 +120,12 @@ function signUp(data) {
                 app.navigate("#public_html/profile.html");
                 kendo.mobile.application.hideLoading();
             }
-
         },
         error: function (error) {
-            alert(JSON.stringify(error));
             console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -126,33 +144,40 @@ function readProfile() {
         dataType: 'json',
         async: false,
         success: function (data) {
-            profile = data;
-            localStorage.setObject('profile', profile);
-            setupUserDetails();
+            if (data.error) {
+                alert(data.error);
+                kendo.mobile.application.hideLoading();
+            } else {
+                profile = data;
+                localStorage.setObject('profile', profile);
+                setupUserDetails();
 
-            //check android if set
-            if (android_checked === false) {
-                if (!profile.android_id) {
-                    var formData = new FormData();
-                    formData.append('android_id', localStorage.getItem('regId'));
-                    saveProfile(formData, "updateAndroid");
-                } else {
-                    var android_id = localStorage.getItem('regId');
-                    if (android_id !== profile.android_id) {
-                        var confirmation = confirm("You are using a different device, do you want to set this as your default?");
-                        if (confirmation) {
-                            var formData = new FormData();
-                            formData.append('android_id', localStorage.getItem('regId'));
-                            saveProfile(formData, "updateAndroid");
+                //check android if set
+                if (android_checked === false) {
+                    if (!profile.android_id) {
+                        var formData = new FormData();
+                        formData.append('android_id', localStorage.getItem('regId'));
+                        saveProfile(formData, "updateAndroid");
+                    } else {
+                        var android_id = localStorage.getItem('regId');
+                        if (android_id !== profile.android_id) {
+                            var confirmation = confirm("You are using a different device, do you want to set this as your default?");
+                            if (confirmation) {
+                                var formData = new FormData();
+                                formData.append('android_id', localStorage.getItem('regId'));
+                                saveProfile(formData, "updateAndroid");
+                            }
                         }
                     }
+                    android_checked = true;
                 }
-                android_checked = true;
+                kendo.mobile.application.hideLoading();
             }
-            kendo.mobile.application.hideLoading();
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -180,8 +205,10 @@ function saveProfile(data, action) {
                 }
             }
         },
-        error: function (xhr, status, error) {
-            alert(error);
+        error: function (error) {
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -253,7 +280,9 @@ function getActivities(n, status) {
             kendo.mobile.application.hideLoading();
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            $('#activities-empty').show();
+            $('#activities-view-all-div').hide();
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -281,7 +310,9 @@ function getActivityDetails(id, callback) {
         }
         ,
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -310,7 +341,9 @@ function getActivitiesList(cb) {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -333,7 +366,9 @@ function getActivityReviews(id) {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -355,7 +390,9 @@ function delete_activity() {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -375,48 +412,53 @@ function getReviews() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            for (key in data) {
-                if (parseInt(data[key].is_new)) {
-                    newReviews.push(data[key]);
-                    allReviews.push(data[key]);
+            if (data.error) {
+                $('#reviews-empty').show();
+                kendo.mobile.application.hideLoading();
+            } else {
+                for (key in data) {
+                    if (parseInt(data[key].is_new)) {
+                        newReviews.push(data[key]);
+                        allReviews.push(data[key]);
+                    } else {
+                        allReviews.push(data[key]);
+                    }
+                }
+                if (newReviews.length > 0) {
+                    $('#activity-new-count').html(newReviews.length);
+                    $("#reviews-empty").hide();
                 } else {
-                    allReviews.push(data[key]);
+                    $('#activity-new-count').html("");
+                    $("#reviews-empty").show();
                 }
-            }
-            if (newReviews.length > 0) {
-                $('#activity-new-count').html(newReviews.length);
-                $("#reviews-empty").hide();
-            } else {
-                $('#activity-new-count').html("");
-                $("#reviews-empty").show();
-            }
 
-            var template = kendo.template($("#reviews-template").html());
-            if (reviewCategory === "new") {
-                list = newReviews;
-            } else {
-                list = allReviews;
-                $("#reviews-empty").hide();
-            }
-            var dataSource = new kendo.data.DataSource({
-                data: list,
-                change: function () {
-                    $("#reviews-list").html(kendo.render(template, this.view()));
+                var template = kendo.template($("#reviews-template").html());
+                if (reviewCategory === "new") {
+                    list = newReviews;
+                } else {
+                    list = allReviews;
+                    $("#reviews-empty").hide();
                 }
-            });
-            dataSource.read();
+                var dataSource = new kendo.data.DataSource({
+                    data: list,
+                    change: function () {
+                        $("#reviews-list").html(kendo.render(template, this.view()));
+                    }
+                });
+                dataSource.read();
 //                $('.review-text-2').css('width', $(window).width() - 180);
-            $('.review').off('click').click(function () {
-                var id = $(this).attr('data-id');
-                getReviewDetails(id);
-            });
+                $('.review').off('click').click(function () {
+                    var id = $(this).attr('data-id');
+                    getReviewDetails(id);
+                });
 
-            kendo.mobile.application.hideLoading();
+                kendo.mobile.application.hideLoading();
+            }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
             $('#reviews-empty').show();
             kendo.mobile.application.hideLoading();
+
         }
     });
 }
@@ -442,7 +484,9 @@ function getReviewDetails(id) {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -505,6 +549,11 @@ function sendEmailReview(emails) {
                 show_success("Asking for review successful!");
             }
             kendo.mobile.application.hideLoading();
+        },
+        error: function (error) {
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -520,32 +569,38 @@ function getUpcomingBookings(n) {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            var list = new Array();
-            for (key in data) {
-                list.push(data[key]);
-            }
-            localStorage.setObject('upcomingBookings', list);
-            var template = kendo.template($("#upcoming-booking-template").html());
-            var dataSource = new kendo.data.DataSource({
-                data: list,
-                pageSize: n,
-                change: function () {
-                    $("#upcoming-bookings").html(kendo.render(template, this.view()));
-                }
-            });
-            dataSource.read();
-            $('#upcoming-bookings').fadeIn('fast');
-            $('#upcoming-bookings-empty').fadeOut('fast');
-            if (list.length > 4) {
-                $('#upcoming-booking-view-all').fadeIn('fast');
-            } else {
+            if (data.error) {
+                $('#upcoming-bookings-empty').fadeIn('fast');
                 $('#upcoming-booking-view-all').fadeOut('fast');
-            }
+                kendo.mobile.application.hideLoading();
+            } else {
+                var list = new Array();
+                for (key in data) {
+                    list.push(data[key]);
+                }
+                localStorage.setObject('upcomingBookings', list);
+                var template = kendo.template($("#upcoming-booking-template").html());
+                var dataSource = new kendo.data.DataSource({
+                    data: list,
+                    pageSize: n,
+                    change: function () {
+                        $("#upcoming-bookings").html(kendo.render(template, this.view()));
+                    }
+                });
+                dataSource.read();
+                $('#upcoming-bookings').fadeIn('fast');
+                $('#upcoming-bookings-empty').fadeOut('fast');
+                if (list.length > 4) {
+                    $('#upcoming-booking-view-all').fadeIn('fast');
+                } else {
+                    $('#upcoming-booking-view-all').fadeOut('fast');
+                }
 
-            $('.booking').off('click').click(function () {
-                getBookingDetails($(this).attr('data-id'), 'confirmed');
-            });
-            kendo.mobile.application.hideLoading();
+                $('.booking').off('click').click(function () {
+                    getBookingDetails($(this).attr('data-id'), 'confirmed');
+                });
+                kendo.mobile.application.hideLoading();
+            }
         },
         error: function (error) {
             $('#upcoming-bookings-empty').fadeIn('fast');
@@ -588,46 +643,55 @@ function getBookings(n, method, status) {
         type: "GET",
         dataType: 'json',
         success: function (data) {
-            $('#bookings-view-all-status').html(status);
-            var list = new Array();
-            for (key in data) {
-                data[key].host_revenue = data[key].host_revenue.toString().replace(/\d+/g, '') + " " + data[key].host_revenue.toString().replace(/^\D+/g, '');
-                list.push(data[key]);
-            }
-            if (method === "get_new_bookings") {
-                if (list.length > 0) {
-                    $('#bookings-new-count').html(list.length);
-                } else {
-                    $('#bookings-new-count').html("");
+            if (data.error) {
+                $('#bookings-empty-status').html("There is no " + status + " bookings request.");
+                if (status === "confirmed") {
+                    $('#bookings-empty-status').html("You have no confirmed upcoming bookings.");
                 }
-            }
-            var template = kendo.template($("#booking-template-new").html());
-            if (status === "confirmed") {
-                template = kendo.template($("#booking-template-confirmed").html());
-            } else if (status === "past") {
-                template = kendo.template($("#booking-template-past").html());
-            }
-            list.reverse();
-            var dataSource = new kendo.data.DataSource({
-                data: list,
-                pageSize: list.length,
-                change: function () {
-                    $("#bookings-list").html(kendo.render(template, this.view()));
-                }
-            });
-            dataSource.read();
-            if (list.length > 0) {
-                $('#bookings-list').fadeIn('fast');
-                $('#bookings-empty').fadeOut('fast');
+                showEmptyBookings();
+                kendo.mobile.application.hideLoading();
             } else {
-                $("#bookings-empty").fadeIn('fast');
-                $('#bookings-list').fadeOut('fast');
+                $('#bookings-view-all-status').html(status);
+                var list = new Array();
+                for (key in data) {
+                    data[key].host_revenue = data[key].host_revenue.toString().replace(/\d+/g, '') + " " + data[key].host_revenue.toString().replace(/^\D+/g, '');
+                    list.push(data[key]);
+                }
+                if (method === "get_new_bookings") {
+                    if (list.length > 0) {
+                        $('#bookings-new-count').html(list.length);
+                    } else {
+                        $('#bookings-new-count').html("");
+                    }
+                }
+                var template = kendo.template($("#booking-template-new").html());
+                if (status === "confirmed") {
+                    template = kendo.template($("#booking-template-confirmed").html());
+                } else if (status === "past") {
+                    template = kendo.template($("#booking-template-past").html());
+                }
+                list.reverse();
+                var dataSource = new kendo.data.DataSource({
+                    data: list,
+                    pageSize: list.length,
+                    change: function () {
+                        $("#bookings-list").html(kendo.render(template, this.view()));
+                    }
+                });
+                dataSource.read();
+                if (list.length > 0) {
+                    $('#bookings-list').fadeIn('fast');
+                    $('#bookings-empty').fadeOut('fast');
+                } else {
+                    $("#bookings-empty").fadeIn('fast');
+                    $('#bookings-list').fadeOut('fast');
+                }
+                $('.booking').off('click').click(function () {
+                    selectedBookingId = $(this).attr('data-id');
+                    getBookingDetails(selectedBookingId, "", null);
+                });
+                kendo.mobile.application.hideLoading();
             }
-            $('.booking').off('click').click(function () {
-                selectedBookingId = $(this).attr('data-id');
-                getBookingDetails(selectedBookingId, "", null);
-            });
-            kendo.mobile.application.hideLoading();
         },
         error: function (error) {
             $('#bookings-empty-status').html("There is no " + status + " bookings request.");
@@ -664,7 +728,9 @@ function getBookingDetails(id, status, cb) {
             }
         },
         error: function (error) {
-            console.log(JSON.stringify(error));
+            var jsonError = JSON.parse(error['responseText']);
+            alert(jsonError.error);
+            kendo.mobile.application.hideLoading();
         }
     });
 }
@@ -727,7 +793,6 @@ function addReview(data) {
                 kendo.mobile.application.hideLoading();
                 app.navigate("#public_html/activities.html");
                 show_success("Submitting review successful! You're review will appear after the supplier confirms it.");
-
             }
         }
     });
