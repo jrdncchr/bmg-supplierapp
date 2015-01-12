@@ -154,7 +154,7 @@ function onCapturePhoto(fileURI) {
         'api_key': localStorage.getItem('api_key'),
         'email': $('#profile-email').val()
     };
-    alert(options.fileName);
+//    alert(options.fileName);
     var ft = new FileTransfer();
     kendo.mobile.application.showLoading();
     $("#modal-upload").data("kendoMobileModalView").close();
