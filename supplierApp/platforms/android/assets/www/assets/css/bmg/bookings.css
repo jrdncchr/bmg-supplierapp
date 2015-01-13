@@ -237,3 +237,35 @@
     font-size: 16px;
     font-weight: bold;
 }
+
+#emEmail {
+    background: white !important;
+    border-top: 0; 
+    box-shadow: none; 
+    border-bottom: dashed 2px lightgray; 
+    height: 50px; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#emMessage {
+    height: 300px; 
+    padding: 20px; border: none; 
+    resize: none;
+    box-shadow: none; 
+}
+
+#emCancelBtn {
+    border-top-left-radius: 0;
+    background: #BDBCC2;
+    font-weight: bold;
+}
+
+#emSendBtn {
+    border-top-right-radius: 0;
+    background: #108F35;
+    font-weight: bold;
+    color: white;
+}

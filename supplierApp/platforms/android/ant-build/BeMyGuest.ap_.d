@@ -174,6 +174,7 @@ c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\a
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\img\reviews\camera_icon.png \
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\angular.min.js \
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\bmg \
+c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\bootstrap.min.js \
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\jquery.min.js \
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\kendo.all.min.js \
 c:\server\www\bmg-supplierapp-android\supplierApp\platforms\android\assets\www\assets\js\kendo.ui.core.min.js \
