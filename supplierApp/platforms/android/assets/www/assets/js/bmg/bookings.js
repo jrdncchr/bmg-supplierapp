@@ -45,12 +45,10 @@ function setupBookingDetails() {
         $('#booking-reuqest-div').show();
         $("#bmg-status-div").show();
     } else if (booking.status_label === "Approved" || booking.status === "approved") {
-        $('#emEmail').val("To: " + booking.guest_email);
         $('#booking-when').html("Starts " + booking.when);
         $('#booking-status-message').html("");
         $("#bmg-status-div").hide();
-        $('#booking-guest-phone').html("(+" + booking.guest_phone + ")");
-        $('#booking-guest-email2').html("(" + booking.guest_email + ")");
+        $('#booking-guest-phone').html("+" + booking.guest_phone);
         $("#booking-guest-phone").attr("href", "tel:+" + booking.guest_phone);
         $("#booking-guest-call").attr("href", "tel:+" + booking.guest_phone);
         $("#booking-guest-message").attr("href", "sms:+" + booking.guest_phone);
@@ -62,7 +60,7 @@ function setupBookingDetails() {
         $("#bmg-status-div").show();
     } else if (booking.status_label === "Rejected" || booking.status_label === "rejected") {
         $('#booking-when').html("Rejected " + booking.when);
-        $('#booking-status-message').html("You rejected this booking request");
+        $('#booking-status-message').html("The rejected this booking request");
         $('#booking-rejected-div').show();
         $("#bmg-status-div").show();
     } else if (booking.status_label === "Expired") {
@@ -133,7 +131,7 @@ function setupBookingDetails() {
 
 function activateBookingDetailsEvents() {
     $('.booking-accept').off('click').click(function () {
-        var ok = confirm("Accept booking request.");
+        var ok = confirm("Confirm accept booking request.");
         if (ok) {
             approveBooking(function () {
                 getBookingDetails(selectedBookingId, "confirmed", function () {
@@ -144,7 +142,7 @@ function activateBookingDetailsEvents() {
         }
     });
     $('.booking-reject').off('click').click(function () {
-        var ok = confirm("Reject booking request");
+        var ok = confirm("Confirm reject booking request");
         if (ok) {
             rejectBooking(function () {
                 getBookingDetails(selectedBookingId, "past", function () {
@@ -153,15 +151,5 @@ function activateBookingDetailsEvents() {
                 });
             });
         }
-    });
-    $('#booking-guest-email').off('click').click(function() {
-        $('#emailModal').modal('show');
-    });
-    $('#emCancelBtn').off('click').click(function() {
-        $('#emMessage').val("");
-        $('#emailModal').modal('hide');
-    });
-    $('#emSendBtn').off('click').click(function() {
-        alert($('#emMessage').val());
     });
 }

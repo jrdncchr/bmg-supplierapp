@@ -16,28 +16,13 @@
         <p class="bmg-bookings-label">Booking Details</p>
         <div class="bmg-hr-styled"></div>
         <div class="bmg-booking-details">
-
-            <!-- Guest Details -->
             <p class="bmg-booking-details-label">Guest Details</p>
             <p class="bmg-booking-details-value"><span id="booking-guest-name"></span></p>
-            <div class="bmg-booking-details-value booking-hidden" style="display: none; margin-top: 5px;" id="booking-contact-div">
-                <p>
-                    <a id="booking-guest-call" style="color: #f05a22;">
-                        <i class="fa fa-phone fa-lg" style="margin-right: 10px;"></i> Call
-                    </a><span id="booking-guest-phone" style="font-weight: normal; color: gray;"></span>
-                </p>
-                <p>
-                    <a id="booking-guest-email" style="color: #f05a22;">
-                        <i class="fa fa-envelope fa-lg" style="margin-right: 5px;"></i> Email
-                    </a><span id="booking-guest-email2" style="font-weight: normal; color: gray;"></span>
-                </p>
-                <p>
-                    <a id="booking-guest-message" style="color: #f05a22;">
-                        <i class="fa fa-lg fa-comments-o" style="margin-right: 5px;"></i> SMS
-                    </a>
-                </p>
-            </div>
-
+            <p class="bmg-booking-details-value booking-hidden" style="display: none;" id="booking-contact-div">
+                Phone: <a id="booking-guest-phone" class='bmg-bookings-link'></a>
+                <a id="booking-guest-call"><img class='bmg-booking-details-value-img' src="assets/img/bookings/phone_icon.png" height="18" width="22"  /></a>
+                <a id="booking-guest-message"><img class='bmg-booking-details-value-img' src="assets/img/bookings/message_icon.png" height="18" width="24"  /></a>
+            </p>
             <div class='bmg-hr-container'><div class='bmg-booking-details-hr'></div></div>
             <p class="bmg-booking-details-label">Requested Date</p>
             <p class="bmg-booking-details-value"><span id="booking-requested-date"></span></p>
@@ -116,28 +101,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Email Modal -->
-    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" style="z-index: 1500;">
-        <div class="modal-content">
-        <div class="modal-body" style="padding: 0 !important;">
-        <input type="text" class="form-control" id="emEmail" readonly="true" />
-            <textarea id="emMessage" class="form-control" placeholder="Type your message here"></textarea>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-               <div class="btn-group" role="group">
-                <button id="emCancelBtn" type="button" class="btn">Cancel</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="emSendBtn" type="button" class="btn">Send Message</button>
-            </div>
-        </div>
-            
-        </div>
-    </div>
-</div>
-</div>
 </div>
 
 <!-- Layout -->
