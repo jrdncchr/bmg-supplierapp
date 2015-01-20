@@ -797,3 +797,33 @@ function addReview(data) {
         }
     });
 }
+
+/*
+ * Email
+ */
+
+ function sendGuestEmail(guest_fn, guest_email, supplier_fn, supplier_email, message) {
+    if(validateEmail(guest_email) && validateEmail(supplier_email) && message !== "") {
+        kendo.mobile.application.showLoading();
+        var api_key = localStorage.getItem('api_key');
+        $.ajax({
+            url: api_url + "bookings/send_guest_email",
+            data: {api_key: api_key, guest_fn: guest_fn, guest_email: guest_email, supplier_fn: supplier_fn, supplier_email: supplier_email, message: message},
+            type: 'POST',
+            dataType: 'json',
+            success:function(data) {
+                if(data.error) {
+                    alert(data.error);
+                } else {
+                    $('#emMessage').val("");
+                    $('#emailModal').modal('hide');
+                    alert("Your email has been sent.");
+                }
+                kendo.mobile.application.hideLoading();
+            },
+            error:function(data) {
+                kendo.mobile.application.hideLoading();
+            }
+        });
+    }
+ }

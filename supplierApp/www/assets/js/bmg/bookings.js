@@ -154,6 +154,7 @@ function activateBookingDetailsEvents() {
             });
         }
     });
+
     $('#booking-guest-email').off('click').click(function() {
         $('#emailModal').modal('show');
     });
@@ -162,6 +163,14 @@ function activateBookingDetailsEvents() {
         $('#emailModal').modal('hide');
     });
     $('#emSendBtn').off('click').click(function() {
-        alert($('#emMessage').val());
+        var guest_fn = booking.guest_first_name + " " + booking.guest_last_name;
+        var guest_email = booking.guest_email;
+        
+        var supplier_fn = profile.first_name + " " + profile.last_name;
+        var supplier_email = profile.email;
+
+        var message = $('#emMessage').val();
+
+        sendGuestEmail(guest_fn, guest_email, supplier_fn, supplier_email, message);
     });
 }
